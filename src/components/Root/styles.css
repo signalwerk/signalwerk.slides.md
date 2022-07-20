@@ -1,0 +1,40 @@
+:root {
+  --green-color--dark: #004d61;
+  --blue-color--dark: #002f5b;
+  --cyan-color: rgb(25, 160, 202);
+  --gray-color: #e6e8ea;
+  --brown-color: rgb(178, 112, 0);
+  --red-color: #f00;
+
+  --yellow-color: #ff0;
+
+  /* theme colors */
+  --emphasis-color: var(--cyan-color);
+  --strong-color: var(--yellow-color);
+
+  --a-color: var(--green-color--dark);
+  --a--visited-color: var(--blue-color--dark);
+
+  --h1-color: var(--blue-color--dark);
+  --h2-color: var(--green-color--dark);
+}
+
+:root {
+  font-family: "Work Sans", "Noto Emoji", sans-serif;
+
+  --font-size: 32;
+  --slide-width: 960;
+  --slide-height: 700;
+
+  font-size: min(
+    calc(100vh / (var(--slide-height) / var(--font-size))),
+    calc(100vw / (var(--slide-width) / var(--font-size)))
+  );
+  line-height: 1.5;
+}
+
+::selection {
+  color: #fff;
+  background: var(--red-color);
+  text-shadow: none;
+}

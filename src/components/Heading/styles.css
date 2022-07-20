@@ -1,0 +1,24 @@
+h1,
+h2,
+h3 {
+  font-family: "Work Sans", "Noto Emoji", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  margin-top: 0;
+  margin-bottom: 0.45em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 1.7rem;
+  color: var(--h1-color);
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: var(--h2-color);
+}
+
+h3 {
+  font-size: 1.1rem;
+}

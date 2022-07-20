@@ -1,0 +1,10 @@
+em {
+  font-style: normal;
+  color: var(--emphasis-color);
+}
+
+strong {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--yellow-color);
+}

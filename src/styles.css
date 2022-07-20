@@ -1,0 +1,18 @@
+/* root */
+@import "./components/Root/styles.css";
+
+/* Basics */
+@import "./components/Body/styles.css";
+@import "./components/Paragraph/styles.css";
+@import "./components/A/styles.css";
+@import "./components/List/styles.css";
+@import "./components/Heading/styles.css";
+@import "./components/Small/styles.css";
+@import "./components/Media/styles.css";
+@import "./components/Emphasis/styles.css";
+
+/* slide */
+@import "./components/Slide/styles.css";
+
+/* components */
+@import "./components/Box/styles.css";

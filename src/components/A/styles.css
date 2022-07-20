@@ -1,0 +1,17 @@
+a {
+  text-decoration: none;
+  color: var(--a-color);
+}
+
+a:visited {
+  color: var(--a--visited-color);
+}
+
+a:hover {
+  color: inherit;
+}
+
+a[target="_blank"]:after {
+  content: " ↗";
+  font-size: 75%;
+}

@@ -14,7 +14,9 @@ echo "   * hash: $hash"
 sed -i -r "s/(signalwerk.slides.md\/)[a-f0-9]{7}(\/)/\1$hash\2/g" README.md
 
 git add -A README.md
-git commit -m "Update readme [CI SKIP]"
+
+# only commit if something is to commit
+git diff --exit-code || git commit -m "Update readme [CI SKIP]"
 
 echo "   * push git"
 git push origin HEAD:main

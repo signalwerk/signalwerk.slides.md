@@ -1,0 +1,8 @@
+blockquote {
+  color: var(--green-color);
+
+  margin: 1em 0;
+  padding-left: 1em;
+
+  border-left: 0.25em solid var(--blue-color--dark);
+}

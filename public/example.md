@@ -45,7 +45,6 @@ Illustration by [Benjamin Güdel](http://www.guedel.biz/) · 2020
 
 </footer>
 
-
 --s--
 
 ## Title
@@ -59,11 +58,10 @@ Source: [Wikipedia · Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_c
 </footer>
 
 --s--
+
 ## Image by height
 
-
 ![](https://interaction.signalwerk.ch/static/a0069e27aae7892ab3026f2757aa593e/13566/Arial_a_outline.png)
-
 
 --s--
 
@@ -73,13 +71,11 @@ Source: [Wikipedia · Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_c
 
 > 80 % width · pixelated rendering
 
-
 ---
 
 ![](https://interaction.signalwerk.ch/static/10d37901c8fc48a669e8ba7775138082/b6a9b/Microsoft_BW_Arial_a_waterfall.png) { .box--w60p }
 
 > 60 % width · normal rendering
-
 
 --s--
 
@@ -90,26 +86,39 @@ background: true
 
 ## Negative Style
 
-
 # Big Text
-
 
 --s--
 
 ## Curvature Tool
 
+--s--
 
+## Workshop
+
+<div class="grid">
+<div class="col8">
+
+8 Column
+
+</div>
+<div class="col4">
+
+4 Column
+
+</div>
+</div>
+
+--s--
+
+## Curvature Tool
 
 <video controls>
   <source src="/img-curve/bezier-by-adobe.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
-
-
-
 --s--
-
 
 ```fm
 style: negative
@@ -119,5 +128,3 @@ background: true
 ## exit 0; thx
 
 # Questions?
-
- 

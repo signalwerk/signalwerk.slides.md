@@ -10,6 +10,9 @@
 @import "./components/Small/styles.css";
 @import "./components/Media/styles.css";
 @import "./components/Emphasis/styles.css";
+@import "./components/Hr/styles.css";
+@import "./components/Blockquote/styles.css";
+@import "./components/Grid/styles.css";
 
 /* slide */
 @import "./components/Slide/styles.css";

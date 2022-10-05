@@ -1,10 +1,12 @@
 :root {
+  --green-color: #006984; /* c: 100 m: 0 y: 20 k: 65 */
+  --blue-color: #0054a2; /* c: 100 m: 70 y: 10 k: 52 */
   --green-color--dark: #004d61;
   --blue-color--dark: #002f5b;
   --cyan-color: rgb(25, 160, 202);
   --gray-color: #e6e8ea;
   --brown-color: rgb(178, 112, 0);
-  --red-color: #f00;
+  --red-color: #f00; /* c: 0 m: 100 y: 100 k: 0 */
 
   --yellow-color: #ff0;
 

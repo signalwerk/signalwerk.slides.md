@@ -1,10 +1,10 @@
-.pixelate img {
-  image-rendering: pixelated;
-}
-
 img,
 video {
   display: block;
   height: 13rem;
   width: auto;
+}
+
+.pixelate img {
+  image-rendering: pixelated;
 }

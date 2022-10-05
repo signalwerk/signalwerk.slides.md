@@ -1,0 +1,9 @@
+hr {
+  border: none;
+  height: 0.1rem;
+
+  background-color: var(--blue-color--dark);
+
+  margin-top: 1.1rem;
+  margin-bottom: 1.2rem;
+}

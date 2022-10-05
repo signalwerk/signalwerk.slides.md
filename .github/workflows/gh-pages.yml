@@ -20,7 +20,7 @@ jobs:
       - name: use node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: "16.x"
 
       - name: npm setup
         run: npm ci
@@ -28,12 +28,12 @@ jobs:
       - name: npm build
         run: npm run build
 
-      - name: build
-        run: bash ./ci/update-readme.sh
-
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+
+      - name: build
+        run: bash ./ci/update-readme.sh

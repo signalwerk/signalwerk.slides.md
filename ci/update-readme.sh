@@ -3,7 +3,10 @@ set -e
 
 echo "-- start"
 
-hash=`git ls-remote git@github.com:signalwerk/signalwerk.slides.md.git | grep refs/heads/gh-pages | cut -f 1 | awk '{ print substr($1,1,7) }'`
+git config user.name "GitHub Action"
+git config user.email "action@github.com"
+
+hash=`git ls-remote | grep refs/heads/gh-pages | cut -f 1 | awk '{ print substr($1,1,7) }'`
 echo "   * hash: $hash"
 
 # macos

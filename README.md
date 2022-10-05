@@ -27,19 +27,27 @@
   </head>
   <body>
     <!-- page content -->
-    <signalwerk-slides href="preserve.md"></signalwerk-slides>
+    <signalwerk-slides href="slides.md"></signalwerk-slides>
     <!-- logic -->
     <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/e73e10b/index.js"></script>
   </body>
 </html>
 ```
 
-## Live code
+## Setup · versioned
+
 ```sh
-# npm install -g live-server
+bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/init.sh)
+```
+
+## Live preview
+
+Make sure you have live-server (${bt}npm install -g live-server${bt})
+
+```sh
 live-server
 ```
 
 ## Usage
 
-<!-- - [Signalwerk · Webtypo](https://webtypo.signalwerk.ch/) -->
+- [signalwerk · Image style transfer and digital image generation with AI](https://signalwerk.github.io/talk.ai-image-generation/)

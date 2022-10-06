@@ -39,6 +39,12 @@ ${bts}sh
 live-server
 $bts
 
+## Update slides framework
+
+${bts}sh
+bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/update.sh)
+$bts
+
 EOF
 )
 

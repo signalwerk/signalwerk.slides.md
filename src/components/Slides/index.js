@@ -11,7 +11,7 @@ function extractFrontMatter(str) {
   let body = str;
 
   try {
-    const md = str.replaceAll("```fm", "---").replace("```", "---");
+    const md = str.replace(/```fm([^`]*)```/g, "---$1---");
     console.log({ md });
     const frontmatter = fm(md);
 
@@ -102,7 +102,16 @@ function Component({ md }) {
 
   return (
     <div className="Slides">
+      {/* <h1>select:{select}</h1> */}
+
       <Slide data={slides[clamp(select, 0, count)]} />
+
+      {/* <br></br>
+      <br></br>
+
+      {slides.map((slide) => (
+        <Slide key={slide.id} data={slide} />
+      ))} */}
     </div>
   );
 }

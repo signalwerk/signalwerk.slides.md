@@ -12,6 +12,7 @@ a:hover {
 }
 
 a[target="_blank"]:after {
+  font-family: "Work Sans", sans-serif;
   content: " ↗";
   font-size: 75%;
 }

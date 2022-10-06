@@ -5,6 +5,15 @@ video {
   width: auto;
 }
 
-.pixelate img {
+.pixelate {
   image-rendering: pixelated;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: 0.65em;
+  margin-top: 0.5em;
 }

@@ -5,6 +5,6 @@ em {
 
 strong {
   font-style: normal;
-  font-weight: 400;
-  color: var(--yellow-color);
+  font-weight: inherit;
+  color: var(--green-color);
 }

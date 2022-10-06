@@ -1,31 +1,30 @@
 import { useState, useEffect, useCallback } from "react";
 import fm from "front-matter";
-import { processMD } from "./gfm.js";
+import { processMD } from "./processor.js";
 import useAsync from "../../hooks/useAsync.js";
 
+import "./styles.css";
 
-// import "./styles.css";
+// function attrAdder(html) {
+//   // https://stackoverflow.com/questions/1058933/can-i-define-a-class-name-on-paragraph-using-markdown
+//   return `${html}`.replace(
+//     /^(.+)(\{(?:([ ]?[#.][-_:a-zA-Z0-9 ]+)+)[ ]?\}[ ]*$)+/gm,
+//     (match, ...p) => {
+//       const className = p[2].replaceAll(".", "").trim();
+//       const newHTML = `<div class="${className}">\n\n${p[0]}\n\n</div>`;
 
-function attrAdder(html) {
-  // https://stackoverflow.com/questions/1058933/can-i-define-a-class-name-on-paragraph-using-markdown
-  return `${html}`.replace(
-    /^(.+)(\{(?:([ ]?[#.][-_:a-zA-Z0-9 ]+)+)[ ]?\}[ ]*$)+/gm,
-    (match, ...p) => {
-      const className = p[2].replaceAll(".", "").trim();
-      const newHTML = `<div class="${className}">\n\n${p[0]}\n\n</div>`;
-
-      return newHTML;
-    }
-  );
-}
+//       return newHTML;
+//     }
+//   );
+// }
 
 function Component({ data }) {
   //   const { value, loading, error } = useAsync(processMD, [data.slide.raw]);
   //   const state = useAsync(() => fetch(url).text(), [url])
 
   const { value, loading, error } = useAsync(async () => {
-    let md = attrAdder(data.slide.raw);
-    // const md = data.slide.raw
+    // let md = attrAdder(data.slide.raw);
+    const md = data.slide.raw
 
     let result = await processMD(md);
     return result;
@@ -49,9 +48,9 @@ function Component({ data }) {
       }`}
     >
       {data.slide.background && (
-        <div className="slide__background">
+        <div className="slides__background">
           <div
-            className="slide__background-inner"
+            className="slides__background-inner"
             style={{
               backgroundColor: data.slide.background.color,
               backgroundImage: `url(${data.slide.background.image})`,
@@ -61,10 +60,10 @@ function Component({ data }) {
           ></div>
         </div>
       )}
-      <div className="slide__stage">
-        <div className="slide__stage-inner">
+      <div className="slides__stage">
+        <div className="slides__stage-inner">
           <div
-            className="slide__content"
+            className="slides__content"
             dangerouslySetInnerHTML={{ __html: value }}
           />
 

@@ -22,6 +22,19 @@ Stefan Huber · Zurich · 2022
 
 --s--
 
+## HTML directives
+
+Modifier for spans :span[Hello]{#myId .small style="color:red"}
+
+--s--
+
+## Image with caption
+
+![alt text](https://portrait.signalwerk.ch/illustration/2020/rgb/w4000/stefan-huber.jpg)
+:caption[hello]
+
+--s--
+
 ```fm
 style: image
 class: text-shadow
@@ -67,15 +80,21 @@ Source: [Wikipedia · Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_c
 
 ## Image by width (80% & pixelated)
 
-![](https://interaction.signalwerk.ch/static/10d37901c8fc48a669e8ba7775138082/b6a9b/Microsoft_BW_Arial_a_waterfall.png) { .box--w80p pixelate }
+<div class="box--w80p pixelate">
 
-> 80 % width · pixelated rendering
+![](https://interaction.signalwerk.ch/static/10d37901c8fc48a669e8ba7775138082/b6a9b/Microsoft_BW_Arial_a_waterfall.png)
+:caption[80 % width · pixelated rendering]
+
+</div>
 
 ---
 
-![](https://interaction.signalwerk.ch/static/10d37901c8fc48a669e8ba7775138082/b6a9b/Microsoft_BW_Arial_a_waterfall.png) { .box--w60p }
+<div class="box--w60p">
 
-> 60 % width · normal rendering
+![](https://interaction.signalwerk.ch/static/10d37901c8fc48a669e8ba7775138082/b6a9b/Microsoft_BW_Arial_a_waterfall.png)
+:caption[60 % width · normal rendering]
+
+</div>
 
 --s--
 
@@ -94,7 +113,7 @@ background: true
 
 --s--
 
-## Workshop
+## Grid
 
 <div class="grid">
 <div class="col8">
@@ -117,6 +136,22 @@ background: true
   <source src="/img-curve/bezier-by-adobe.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
+
+--s--
+
+## Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>title</title>
+  </head>
+  <body>
+    <!-- page content -->
+  </body>
+</html>
+```
 
 --s--
 

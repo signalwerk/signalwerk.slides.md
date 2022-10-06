@@ -39,6 +39,11 @@
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/init.sh)
 ```
+## update · versioned
+
+```sh
+bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/update.sh)
+```
 
 ## Live preview
 

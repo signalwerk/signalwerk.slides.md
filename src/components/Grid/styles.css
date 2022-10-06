@@ -12,11 +12,6 @@
   margin-right: auto;
 }
 
-.grid > div[class^="col"] img {
-  width: 100%;
-  height: auto;
-}
-
 .grid > .col1 {
   grid-column: span 1;
 }

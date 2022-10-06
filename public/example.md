@@ -116,7 +116,7 @@ background: true
 ## Grid
 
 <div class="grid">
-<div class="col8">
+<div class="col8 img--w100p">
 
 8 Column
 

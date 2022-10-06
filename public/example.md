@@ -10,7 +10,7 @@ style: negative
 background: true
 ```
 
-## Hello👋
+## Hello **👋**
 
 # {{process.content.frontmatter.title}}
 

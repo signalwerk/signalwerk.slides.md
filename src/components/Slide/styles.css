@@ -110,13 +110,13 @@ align-items: stretch; */
 
 .slide--style-negative h1,
 .slide--style-negative h3 {
-  color: var(--cyan-color);
+  color: white;
 }
 
 .slide--style-negative h2 {
-  /* color: yellow; */
-  color: white;
+  color: var(--cyan-color);
 }
+
 .slide--style-negative strong {
   color: yellow;
 }

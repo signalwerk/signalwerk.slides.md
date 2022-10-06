@@ -17,8 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
+          fetch-depth: 0 # fetch history, so we can later commit to it
 
       - name: use node
         uses: actions/setup-node@v3

@@ -22,6 +22,8 @@ git add -A README.md
 git diff --exit-code || git commit -m "Update readme [CI SKIP]"
 
 echo "   * push git"
+git push
+echo "   * push git"
 git push origin HEAD:main
 
 echo "-- end"

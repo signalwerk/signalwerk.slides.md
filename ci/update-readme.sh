@@ -13,6 +13,8 @@ echo "   * hash: $hash"
 # sed -i '' -E "s/(signalwerk.slides.md\/)[a-f0-9]{7}(\/)/\1$hash\2/g" README.md
 sed -i -r "s/(signalwerk.slides.md\/)[a-f0-9]{7}(\/)/\1$hash\2/g" README.md
 
+git status
+
 git add -A README.md
 
 # only commit if something is to commit

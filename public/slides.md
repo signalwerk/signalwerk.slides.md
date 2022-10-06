@@ -24,6 +24,45 @@ _Why not a sub title?_
 
 --s--
 
+## Slide Title _emphasis_ and **strong**
+
+# Slide Title _emphasis_ and **strong**
+
+### H3 Subtitle
+
+- Text [Link](https://github.com)
+- Text _emphasis_ and **strong**
+
+<footer>
+
+Text [Link](https://github.com) with _emphasis_ and **strong**
+
+</footer>
+
+--s--
+
+```fm
+style: negative
+background: true
+```
+
+## Slide Title _emphasis_ and **strong**
+
+# Slide Title _emphasis_ and **strong**
+
+### H3 Subtitle
+
+- Text [Link](https://github.com)
+- Text _emphasis_ and **strong**
+
+<footer>
+
+Text [Link](https://github.com) with _emphasis_ and **strong**
+
+</footer>
+
+--s--
+
 ## HTML directives
 
 Modifier for spans :span[Hello]{#myId .small style="color:red"}

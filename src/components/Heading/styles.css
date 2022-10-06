@@ -25,13 +25,13 @@ h3 {
 h1 em,
 h2 em,
 h3 em {
-  color: yellow;
+  color: var(--emphasis-color);
   font-weight: inherit;
 }
 
 h1 strong,
 h2 strong,
 h3 strong {
-  color: var(--emphasis-color);
+  color: var(--green-color);
   font-weight: inherit;
 }

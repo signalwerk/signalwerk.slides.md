@@ -4,6 +4,7 @@
   --green-color--dark: #004d61;
   --blue-color--dark: #002f5b;
   --cyan-color: rgb(25, 160, 202);
+  --cyan-color--light: rgb(21, 186, 247);
   --gray-color: #e6e8ea;
   --brown-color: rgb(178, 112, 0);
   --red-color: #f00; /* c: 0 m: 100 y: 100 k: 0 */
@@ -18,7 +19,7 @@
   --a--visited-color: var(--green-color--dark);
 
   --h1-color: var(--blue-color--dark);
-  --h2-color: var(--blue-color--dark);
+  --h2-color: var(--green-color--dark);
 }
 
 :root {

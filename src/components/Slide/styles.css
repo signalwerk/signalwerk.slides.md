@@ -269,20 +269,6 @@ align-items: stretch; */
   color: var(--emphasis-color);
 }
 
-.slide--style-negative h1 em,
-.slide--style-negative h2 em,
-.slide--style-negative h3 em {
-  color: yellow;
-  font-weight: inherit;
-}
-
-.slide--style-negative h1 strong,
-.slide--style-negative h2 strong,
-.slide--style-negative h3 strong {
-  color: var(--emphasis-color);
-  font-weight: inherit;
-}
-
 .slide--style-image footer p,
 .slide--style-image footer a,
 .slide--style-image footer a:visited {

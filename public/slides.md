@@ -10,13 +10,15 @@ style: negative
 background: true
 ```
 
-## Hello **👋**
+## Hello _👋_
 
 # {{process.content.frontmatter.title}}
 
+_Why not a sub title?_
+
 <footer>
 
-Stefan Huber · Zurich · 2022
+2022 · Zurich · Stefan Huber
 
 </footer>
 

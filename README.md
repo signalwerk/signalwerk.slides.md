@@ -2,8 +2,6 @@
 
 ## Usage · versioned
 
-
-
 ```html
 <!DOCTYPE html>
 <html lang="en">

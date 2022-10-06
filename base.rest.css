@@ -106,6 +106,19 @@ h2 {
 h3 {
   font-size: 1.1rem;
 }
+h1 em,
+h2 em,
+h3 em {
+  color: yellow;
+  font-weight: inherit;
+}
+h1 strong,
+h2 strong,
+h3 strong {
+  color: rgb(25, 160, 202);
+  color: var(--emphasis-color);
+  font-weight: inherit;
+}
 small,
 .small {
   font-size: 0.65em;
@@ -469,19 +482,6 @@ align-items: stretch; */
 .slide--style-negative strong {
   color: rgb(25, 160, 202);
   color: var(--emphasis-color);
-}
-.slide--style-negative h1 em,
-.slide--style-negative h2 em,
-.slide--style-negative h3 em {
-  color: yellow;
-  font-weight: inherit;
-}
-.slide--style-negative h1 strong,
-.slide--style-negative h2 strong,
-.slide--style-negative h3 strong {
-  color: rgb(25, 160, 202);
-  color: var(--emphasis-color);
-  font-weight: inherit;
 }
 .slide--style-image footer p,
 .slide--style-image footer a,

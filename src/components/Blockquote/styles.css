@@ -1,6 +1,6 @@
 blockquote {
   color: var(--green-color);
-
+  font-weight: 700;
   margin: 1em 0;
   padding-left: 1em;
 

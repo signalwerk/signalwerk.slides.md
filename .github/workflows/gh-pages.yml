@@ -35,5 +35,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
 
-      - name: build
+      - name: update readme
         run: bash ./ci/update-readme.sh

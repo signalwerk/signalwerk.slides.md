@@ -5,8 +5,6 @@ import { createRoot } from "react-dom/client";
 import useFetch from "./hooks/useFetch.js";
 import Slides from "./components/Slides/index.js";
 
-
-
 function App({ url }) {
   const { response, loading, error } = useFetch(url);
   if (error) return <p>There is an error.</p>;
@@ -23,9 +21,13 @@ class StandaloneComponent extends HTMLElement {
   connectedCallback() {
     const mountPoint = document.createElement("div");
     // this.attachShadow({ mode: "open" }).appendChild(mountPoint);
-    this.append(mountPoint)
+    this.append(mountPoint);
 
-    const href = this.getAttribute("href");
+    const hrefOverwrite = new URLSearchParams(window.location.search).get(
+      "href"
+    );
+
+    const href = hrefOverwrite || this.getAttribute("href") || "slides.md";
     const root = createRoot(mountPoint);
     root.render(<App url={href} />);
   }

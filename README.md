@@ -11,7 +11,7 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.signalwerk.ch" />
     <link
-      href="https://fonts.signalwerk.ch/css/latest/family=Open+Sans:ital,wght@0,300..800;1,300..800.css"
+      href="https://fonts.signalwerk.ch/css/latest/family=Work+Sans:ital,wght@0,100..900;1,100..900.css"
       rel="stylesheet"
     />
     <link
@@ -21,7 +21,7 @@
     <!-- styles -->
     <link
       rel="stylesheet"
-      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/e73e10b/base.css"
+      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/4c43618/base.css"
       media="all"
     />
   </head>
@@ -29,7 +29,7 @@
     <!-- page content -->
     <signalwerk-slides href="slides.md"></signalwerk-slides>
     <!-- logic -->
-    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/e73e10b/index.js"></script>
+    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/4c43618/index.js"></script>
   </body>
 </html>
 ```
@@ -39,6 +39,7 @@
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/init.sh)
 ```
+
 ## update · versioned
 
 ```sh
@@ -47,11 +48,13 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 
 ## Live preview
 
-Make sure you have live-server (${bt}npm install -g live-server${bt})
+Make sure you have live-server (`npm install -g live-server`)
 
 ```sh
 live-server
 ```
+
+You can add a `href` parameter to the query string (`?href=http://examlple.com/slides.md`) in the browser to override the slides location where we will load the markdown from.
 
 ## Usage
 

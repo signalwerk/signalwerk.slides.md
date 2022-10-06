@@ -15,10 +15,10 @@
   --strong-color: var(--yellow-color);
 
   --a-color: var(--green-color--dark);
-  --a--visited-color: var(--blue-color--dark);
+  --a--visited-color: var(--green-color--dark);
 
   --h1-color: var(--blue-color--dark);
-  --h2-color: var(--green-color--dark);
+  --h2-color: var(--blue-color--dark);
 }
 
 :root {

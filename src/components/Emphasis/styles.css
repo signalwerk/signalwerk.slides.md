@@ -1,10 +1,12 @@
 em {
   font-style: normal;
   color: var(--emphasis-color);
+  font-weight: 700;
 }
 
 strong {
   font-style: normal;
   font-weight: inherit;
+  font-weight: 700;
   color: var(--green-color);
 }

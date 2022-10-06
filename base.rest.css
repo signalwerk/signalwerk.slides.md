@@ -552,13 +552,6 @@ code.language-css {
 .box--w80p {
   width: 80%;
 }
-.box--w50p img,
-.box--w60p img,
-.box--w70p img,
-.box--w80p img {
-  height: auto;
-  width: 100%;
-}
 .box--img-cover {
   overflow: hidden;
 

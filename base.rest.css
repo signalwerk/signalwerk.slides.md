@@ -179,7 +179,7 @@ hr {
 blockquote {
   color: #006984;
   color: var(--green-color);
-
+  font-weight: 700;
   margin: 1em 0;
   padding-left: 1em;
 

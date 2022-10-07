@@ -85,6 +85,16 @@ Text [Link](https://github.com) with _emphasis_ and **strong**
 
 --s--
 
+## Big Picture
+
+<div class="box box--w50p box--img-cover box--right">
+
+![](https://upload.wikimedia.org/wikipedia/commons/8/8d/Zwei_wandernde_Gesellen%2C_2006.jpg)
+
+</div>
+
+--s--
+
 ## Image with caption
 
 <figure>

@@ -24,7 +24,7 @@ curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/pub
 
 ## set title
 sed -i '' -E "s|(<title>)([^<]+)(</title>)|\1$talktitle\3|g" ./docs/index.html
-sed -i '' -E "s|title:.*|title:$talktitle|g" ./docs/slides.md
+sed -i '' -E "s|title:.*|title: $talktitle|g" ./docs/slides.md
 
 
 bts='```'

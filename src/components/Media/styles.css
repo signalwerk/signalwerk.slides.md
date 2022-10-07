@@ -11,7 +11,7 @@ img.img--w100p,
   height: auto;
 }
 
-.pixelate {
+.img--pixelate {
   image-rendering: pixelated;
 }
 

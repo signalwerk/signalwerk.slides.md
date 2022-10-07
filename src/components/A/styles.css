@@ -3,10 +3,6 @@ a {
   color: var(--a-color);
 }
 
-a:visited {
-  color: var(--a--visited-color);
-}
-
 a:hover {
   color: inherit;
 }

@@ -1,47 +1,20 @@
 import html, { safe } from "escape-html-template-tag";
-import { visit } from "unist-util-visit";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
-import remarkDirective from "remark-directive";
 import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import rehypeStringify from "rehype-stringify";
-import figure from "./figure.js";
-import { h } from "hastscript";
 
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 
 import rehypeExternalLinks from "rehype-external-links";
 import { remarkGfm } from "./gfm.js";
 
-// This plugin is an example to let users write HTML with directives.
-// It’s informative but rather useless.
-// See below for others examples.
-/** @type {import('unified').Plugin<[], import('mdast').Root>} */
-function myRemarkPlugin() {
-  return (tree) => {
-    visit(tree, (node) => {
-      if (
-        node.type === "textDirective" ||
-        node.type === "leafDirective" ||
-        node.type === "containerDirective"
-      ) {
-        const data = node.data || (node.data = {});
-        const hast = h(node.name, node.attributes);
 
-        data.hName = hast.tagName;
-        data.hProperties = hast.properties;
-      }
-    });
-  };
-}
 
 const processor = unified()
   .use(remarkParse)
-  .use(remarkDirective)
-  .use(myRemarkPlugin)
-  .use(figure)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypeHighlight, { subset: false })

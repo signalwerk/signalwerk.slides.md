@@ -13,6 +13,8 @@
 @import "./components/Hr/styles.css";
 @import "./components/Blockquote/styles.css";
 @import "./components/Grid/styles.css";
+@import "./components/Footer/styles.css";
+@import "./components/Code/styles.css";
 
 /* slide */
 @import "./components/Slide/styles.css";

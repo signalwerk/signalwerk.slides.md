@@ -1,8 +1,6 @@
 ---
 theme: signalwerk
 title: This is the title of the Slides
-slide:
-  class: center
 ---
 
 ```fm
@@ -24,6 +22,30 @@ _Why not a sub title?_
 
 --s--
 
+```fm
+style: image
+background:
+  image: https://portrait.signalwerk.ch/illustration/2020/rgb/w4000/stefan-huber.jpg
+  position: 50% 40%
+```
+
+## Stefan
+
+<div class="box box--w40p box--bottom box--white box--padding small">
+
+- Developer
+- ❦ Typography
+
+</div>
+
+<footer class="footer--right">
+
+Illustration by [Benjamin Güdel](http://www.guedel.biz/) · 2020
+
+</footer>
+
+--s--
+
 ## Slide Title _emphasis_ and **strong**
 
 # Slide Title _emphasis_ and **strong**
@@ -63,41 +85,14 @@ Text [Link](https://github.com) with _emphasis_ and **strong**
 
 --s--
 
-## HTML directives
-
-Modifier for spans :span[Hello]{#myId .small style="color:red"}
-
---s--
-
 ## Image with caption
 
+<figure>
+
 ![alt text](https://portrait.signalwerk.ch/illustration/2020/rgb/w4000/stefan-huber.jpg)
-:caption[hello]
 
---s--
-
-```fm
-style: image
-class: text-shadow
-background:
-  image: https://portrait.signalwerk.ch/illustration/2020/rgb/w4000/stefan-huber.jpg
-  position: 50% 40%
-```
-
-## Stefan
-
-<div class="box box--40p box--bottom box--negative">
-
-- Developer
-- ❦ Typography
-
-</div>
-
-<footer class="footer--right">
-
-Illustration by [Benjamin Güdel](http://www.guedel.biz/) · 2020
-
-</footer>
+<figcaption>hello</figcaption>
+</figure>
 
 --s--
 
@@ -119,21 +114,37 @@ Source: [Wikipedia · Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_c
 
 --s--
 
-## Image by width (80% & pixelated)
+## Image by width
 
-<div class="box--w80p pixelate">
+<div class="box--w80p img--w100p">
+
+<figure class="img--pixelate">
 
 ![](https://interaction.signalwerk.ch/static/10d37901c8fc48a669e8ba7775138082/b6a9b/Microsoft_BW_Arial_a_waterfall.png)
-:caption[80 % width · pixelated rendering]
+
+<figcaption>
+
+80 % width · pixelated rendering
+
+</figcaption>
+</figure>
 
 </div>
 
 ---
 
-<div class="box--w60p">
+<div class="box--w60p img--w100p">
+
+<figure class="img--pixelate">
 
 ![](https://interaction.signalwerk.ch/static/10d37901c8fc48a669e8ba7775138082/b6a9b/Microsoft_BW_Arial_a_waterfall.png)
-:caption[60 % width · normal rendering]
+
+<figcaption>
+
+60 % width · pixelated rendering
+
+</figcaption>
+</figure>
 
 </div>
 

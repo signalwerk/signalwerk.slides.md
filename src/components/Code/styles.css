@@ -1,0 +1,42 @@
+code {
+  display: block;
+  white-space: pre;
+  font-size: 90%;
+  line-height: 1.3;
+}
+
+:is(.language-html, .language-xml) .hljs-tag {
+  color: var(--blue-color--dark);
+}
+:is(.language-html, .language-xml) .hljs-name,
+:is(.language-html, .language-xml) .hljs-attr {
+  color: var(--brown-color);
+}
+:is(.language-html, .language-xml) .hljs-string {
+  color: var(--green-color--dark);
+}
+/* CSS Color */
+
+code.language-css {
+  color: var(--blue-color--dark);
+}
+
+.language-css .hljs-selector-class {
+  color: var(--green-color--dark);
+}
+.language-css .hljs-attribute {
+  color: var(--brown-color);
+}
+.language-css .hljs-comment {
+  color: #888;
+}
+
+/* 
+    .hljs-attribute {
+      color: #006984;
+    }
+    .hljs-keyword,
+    .hljs-selector-tag {
+      color: rgb(178, 112, 0);
+    }
+*/

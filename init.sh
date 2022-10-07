@@ -17,7 +17,7 @@ touch ./docs/.nojekyll
 curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/README.md" | sed -e/DOCTYPE/\{ -e:1 -en\;b1 -e\} -ed  | awk '/```/{stop=1} stop==0{print}' > ./docs/index.html
 
 ## add initial slides
-curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/public/example.md" > ./docs/slides.md
+curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/public/slides.md" > ./docs/slides.md
 
 
 

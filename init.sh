@@ -31,7 +31,7 @@ bts='```'
 bt='`'
 
 readme=$(cat << EOF
-# $fulltalkname
+# $talktitle
 
 [Show Slides](https://signalwerk.github.io/$fulltalkname/)
 

@@ -51,7 +51,10 @@ EOF
 echo "$readme" > README.md
 
 ## add to readme
-echo "- [signalwerk · $fulltalkname](https://signalwerk.github.io/$fulltalkname/)" >> "$HOME/CODE/signalwerk.slides.md/README.md"
+year=`date +'%Y'`
+info="- [$year · $fulltalkname](https://signalwerk.github.io/$fulltalkname/) ([repo](https://github.com/signalwerk/$fulltalkname))"
+echo "$info" >> "$HOME/CODE/signalwerk.slides.md/README.md"
+echo "$info" >> "$HOME/CODE/talks/README.md"
 echo "⚠️ signalwerk.slides.md is now having a new line in the readme.md"
 
 git add -A README.md

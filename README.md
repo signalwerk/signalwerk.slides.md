@@ -60,3 +60,4 @@ You can add a `href` parameter to the query string (`?href=http://examlple.com/s
 
 - [2022 · Image style transfer and digital image generation with AI](https://signalwerk.github.io/talk.ai-image-generation/) ([repo](https://github.com/signalwerk/talk.ai-image-generation))
 - [2022 · How to preserve curves](https://signalwerk.github.io/talk.preserve.curves/) ([repo](https://github.com/signalwerk/talk.preserve.curves))
+- [2022 · Text to speech](https://signalwerk.github.io/talk.text-to-speech/) ([repo](https://github.com/signalwerk/talk.text-to-speech))

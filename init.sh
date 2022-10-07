@@ -1,3 +1,6 @@
+echo "enter the talk-name: example 'Image style transfer and digital image generation with AI'"
+read talktitle
+
 echo "enter the talk-name of the repo: example 'ai-image-generation'"
 read talkname
 
@@ -19,6 +22,9 @@ curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/REA
 ## add initial slides
 curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/public/slides.md" > ./docs/slides.md
 
+## set title
+sed -i '' -E "s|(<title>)([^<]+)(</title>)|\1$talktitle\3|g" ./docs/index.html
+sed -i '' -E "s|title:.*|title:$talktitle|g" ./docs/slides.md
 
 
 bts='```'
@@ -52,7 +58,7 @@ echo "$readme" > README.md
 
 ## add to readme
 year=`date +'%Y'`
-info="- [$year · $fulltalkname](https://signalwerk.github.io/$fulltalkname/) ([repo](https://github.com/signalwerk/$fulltalkname))"
+info="- [$year · $talktitle](https://signalwerk.github.io/$fulltalkname/) ([repo](https://github.com/signalwerk/$fulltalkname))"
 echo "$info" >> "$HOME/CODE/signalwerk.slides.md/README.md"
 echo "$info" >> "$HOME/CODE/talks/README.md"
 echo "⚠️ signalwerk.slides.md is now having a new line in the readme.md"

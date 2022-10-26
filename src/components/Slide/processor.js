@@ -1,4 +1,3 @@
-import html, { safe } from "escape-html-template-tag";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
@@ -10,8 +9,6 @@ import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 
 import rehypeExternalLinks from "rehype-external-links";
 import { remarkGfm } from "./gfm.js";
-
-
 
 const processor = unified()
   .use(remarkParse)

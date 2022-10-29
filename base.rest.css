@@ -328,6 +328,9 @@ code.language-css {
 
   --slide-bar-color: var(--blue-color--dark);
 }
+.slide--hidden {
+  opacity: 0;
+}
 .slides__background {
   position: absolute;
   top: 0;

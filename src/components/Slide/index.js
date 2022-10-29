@@ -3,7 +3,7 @@ import useAsync from "../../hooks/useAsync.js";
 
 import "./styles.css";
 
-function Component({ data }) {
+function Component({ data, hidden }) {
   const { value, loading, error } = useAsync(async () => {
     const md = data.slide.raw;
 
@@ -26,7 +26,7 @@ function Component({ data }) {
     <div
       className={`slide slide--style-${data.slide.style || "default"} slide--${
         data.slide.class || "default"
-      }`}
+      } slide--${hidden ? "hidden" : "visible"}`}
     >
       {data.slide.background && (
         <div className="slides__background">

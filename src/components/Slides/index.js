@@ -100,18 +100,19 @@ function Component({ md }) {
     setSelect((parsed) => clamp(parsed - 1, 0, count));
   });
 
+  const current = clamp(select, 0, count);
+
+  const isArchiveOrg = navigator.userAgent.includes("archive.org_bot");
+
   return (
     <div className="Slides">
-      {/* <h1>select:{select}</h1> */}
-
-      <Slide data={slides[clamp(select, 0, count)]} />
-
-      {/* <br></br>
-      <br></br>
-
-      {slides.map((slide) => (
-        <Slide key={slide.id} data={slide} />
-      ))} */}
+      {isArchiveOrg ? (
+        slides.map((slide, index) => (
+          <Slide key={slide.id} data={slide} hidden={index !== current} />
+        ))
+      ) : (
+        <Slide data={slides[current]} />
+      )}
     </div>
   );
 }

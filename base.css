@@ -505,6 +505,9 @@ style-negative
 .box--w100p {
   width: 100%;
 }
+.box--ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
 /* box over whole slide */
 .box--img-cover {
   position: absolute;

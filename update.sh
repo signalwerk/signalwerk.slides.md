@@ -9,7 +9,7 @@ TITLE="${TITLE%"${TITLE##*[![:space:]]}"}"
 echo "  * store title: '$TITLE'"
 
 # download new html
-curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/README.md" | sed -e/DOCTYPE/\{ -e:1 -en\;b1 -e\} -ed  | awk '/```/{stop=1} stop==0{print}' > ./docs/index.html
+curl -H 'Cache-Control: no-cache, no-store' "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/README.md" | sed -e/DOCTYPE/\{ -e:1 -en\;b1 -e\} -ed  | awk '/```/{stop=1} stop==0{print}' > ./docs/index.html
 
 # bring in the title
 

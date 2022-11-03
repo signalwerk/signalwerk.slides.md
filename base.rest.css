@@ -23,6 +23,7 @@
 
   --h1-color: var(--blue-color--dark);
   --h2-color: var(--green-color--dark);
+  --code-color-background: rgba(255, 255, 255, 0.2);
 }
 :root {
   font-family: "Work Sans", "Noto Emoji", sans-serif;
@@ -260,6 +261,15 @@ code {
   white-space: pre;
   font-size: 90%;
   line-height: 1.3;
+  margin: 0;
+}
+code.code--background,
+.code--background code {
+  border-radius: 0.2em;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--code-color-background);
 }
 .language-html .hljs-tag {
   color: #002f5b;
@@ -361,6 +371,7 @@ style-negative
   --slide-color: white;
   --a-color: var(--cyan-color--light);
   --slide-letter-spacing-general: var(--letter-spacing--negative);
+  --code-color-background: rgba(0, 0, 0, 0.2);
 }
 .slide--style-negative {
   --slide-bar-color: white;

@@ -6,7 +6,9 @@ video {
 }
 
 img.img--w100p,
-.img--w100p img {
+.img--w100p img,
+video.video--w100p,
+.video--w100p video {
   width: 100%;
   height: auto;
 }

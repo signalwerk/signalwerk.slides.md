@@ -201,6 +201,17 @@ background: true
 
 --s--
 
+## iFrame
+
+<div class="box--w80p box--ratio-16-9">
+<iframe
+  className="iframe--fill"
+  src="https://player.vimeo.com/video/213887934?title=0&byline=0&portrait=0vz#t=0m25s">
+</iframe>
+</div>
+
+--s--
+
 ## Code
 
 ```html

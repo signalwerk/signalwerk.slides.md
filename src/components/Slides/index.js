@@ -12,7 +12,7 @@ function extractFrontMatter(str) {
 
   try {
     const md = str.replace(/```fm([^`]*)```/g, "---$1---");
-    console.log({ md });
+    // console.log({ md });
     const frontmatter = fm(md);
 
     attributes = get(frontmatter, "attributes");

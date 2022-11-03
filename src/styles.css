@@ -15,6 +15,7 @@
 @import "./components/Grid/styles.css";
 @import "./components/Footer/styles.css";
 @import "./components/Code/styles.css";
+@import "./components/Iframe/styles.css";
 
 /* slide */
 @import "./components/Slide/styles.css";

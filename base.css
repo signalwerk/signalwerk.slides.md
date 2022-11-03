@@ -255,7 +255,7 @@ footer p {
   text-align: right;
 }
 code {
-  display: block;
+  /* display: block; */
   white-space: pre;
   font-size: 90%;
   line-height: 1.3;

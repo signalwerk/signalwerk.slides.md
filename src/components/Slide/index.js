@@ -24,8 +24,8 @@ function Component({ data, hidden }) {
 
   return (
     <div
-      className={`slide slide--style-${data.slide.style || "default"} slide--${
-        data.slide.class || "default"
+      className={`slide slide--style-${data.slide.style || "default"} ${
+        data.slide.class || ""
       } slide--${hidden ? "hidden" : "visible"}`}
     >
       {data.slide.background && (

@@ -40,6 +40,7 @@ style-negative
   --slide-color: white;
   --a-color: var(--cyan-color--light);
   --slide-letter-spacing-general: var(--letter-spacing--negative);
+  --code-color-background: rgba(0, 0, 0, 0.2);
 }
 
 .slide--style-negative {

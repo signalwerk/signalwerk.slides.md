@@ -1,5 +1,6 @@
 code {
   /* display: block; */
+  font-family: "IBM Plex Mono", monospace;
   white-space: pre;
   font-size: 90%;
   line-height: 1.3;

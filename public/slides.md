@@ -215,7 +215,6 @@ background: true
 ## Code
 
 ```html
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>title</title>
@@ -224,6 +223,34 @@ background: true
     <!-- page content -->
   </body>
 </html>
+```
+
+--s--
+
+## Code
+
+```js
+// comment
+const car = {
+  name: "Toyota",
+  wheels: 4,
+};
+console.log(car);
+```
+
+--s--
+
+## Code
+
+```css
+root {
+  color: red;
+}
+@keyframes test {
+  0% {
+    height: 2px;
+  }
+}
 ```
 
 --s--

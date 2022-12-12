@@ -15,38 +15,49 @@ code.code--background,
   background-color: var(--code-color-background);
 }
 
-:is(.language-html, .language-xml) .hljs-tag {
-  color: var(--blue-color--dark);
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link {
+  color: #8be9fd;
 }
-:is(.language-html, .language-xml) .hljs-name,
-:is(.language-html, .language-xml) .hljs-attr {
-  color: var(--brown-color);
+
+.hljs-keyword {
+  color: var(--blue-color);
 }
-:is(.language-html, .language-xml) .hljs-string {
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-meta-keyword {
+  font-style: italic;
+  color: var(--cyan-color);
+}
+
+.hljs-variable {
+  color: var(--green-color);
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+  color: var(--gray-color--dark);
+}
+
+.hljs-name,
+.hljs-meta,
+.hljs-keyword {
+  font-weight: bold;
+}
+
+.hljs-literal,
+.hljs-number {
   color: var(--green-color--dark);
 }
-/* CSS Color */
 
-code.language-css {
-  color: var(--blue-color--dark);
-}
-
-.language-css .hljs-selector-class {
-  color: var(--green-color--dark);
-}
-.language-css .hljs-attribute {
-  color: var(--brown-color);
-}
-.language-css .hljs-comment {
-  color: #888;
+.hljs-emphasis {
+  font-style: italic;
 }
 
-/* 
-    .hljs-attribute {
-      color: #006984;
-    }
-    .hljs-keyword,
-    .hljs-selector-tag {
-      color: rgb(178, 112, 0);
-    }
-*/
+:is(.language-html, .language-xml) .hljs-name {
+  color: var(--blue-color);
+}

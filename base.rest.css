@@ -283,10 +283,13 @@ code.code--background,
   background-color: rgba(0, 0, 0, 0.2);
   background-color: var(--code-color-background);
 }
-.hljs-keyword,
-.hljs-title.function_ {
+.hljs-keyword {
   color: #0054a2;
   color: var(--blue-color);
+}
+.hljs-title.function_ {
+  color: rgb(25, 160, 202);
+  color: var(--cyan-color);
 }
 .hljs-attr,
 .hljs-attribute,

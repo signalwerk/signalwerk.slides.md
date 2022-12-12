@@ -15,13 +15,6 @@ code.code--background,
   background-color: var(--code-color-background);
 }
 
-.hljs-built_in,
-.hljs-selector-tag,
-.hljs-section,
-.hljs-link {
-  color: #8be9fd;
-}
-
 .hljs-keyword {
   color: var(--blue-color);
 }
@@ -33,6 +26,7 @@ code.code--background,
   color: var(--cyan-color);
 }
 
+.hljs-property,
 .hljs-variable {
   color: var(--green-color);
 }

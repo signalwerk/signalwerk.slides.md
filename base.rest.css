@@ -7,6 +7,7 @@
   --cyan-color: rgb(25, 160, 202);
   --cyan-color--light: rgb(21, 186, 247);
   --gray-color: #e6e8ea;
+  --gray-color--dark: #a7a9ab;
   --brown-color: rgb(178, 112, 0);
   --red-color: #f00; /* c: 0 m: 100 y: 100 k: 0 */
 
@@ -273,63 +274,54 @@ code.code--background,
   background-color: rgba(0, 0, 0, 0.2);
   background-color: var(--code-color-background);
 }
-.language-html .hljs-tag {
-  color: #002f5b;
-  color: var(--blue-color--dark);
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link {
+  color: #8be9fd;
 }
-.language-xml .hljs-tag {
-  color: #002f5b;
-  color: var(--blue-color--dark);
+.hljs-keyword {
+  color: #0054a2;
+  color: var(--blue-color);
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-meta-keyword {
+  font-style: italic;
+  color: rgb(25, 160, 202);
+  color: var(--cyan-color);
+}
+.hljs-variable {
+  color: #006984;
+  color: var(--green-color);
+}
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+  color: #a7a9ab;
+  color: var(--gray-color--dark);
+}
+.hljs-name,
+.hljs-meta,
+.hljs-keyword {
+  font-weight: bold;
+}
+.hljs-literal,
+.hljs-number {
+  color: #004d61;
+  color: var(--green-color--dark);
+}
+.hljs-emphasis {
+  font-style: italic;
 }
 .language-html .hljs-name {
-  color: rgb(178, 112, 0);
-  color: var(--brown-color);
+  color: #0054a2;
+  color: var(--blue-color);
 }
 .language-xml .hljs-name {
-  color: rgb(178, 112, 0);
-  color: var(--brown-color);
+  color: #0054a2;
+  color: var(--blue-color);
 }
-.language-html .hljs-attr {
-  color: rgb(178, 112, 0);
-  color: var(--brown-color);
-}
-.language-xml .hljs-attr {
-  color: rgb(178, 112, 0);
-  color: var(--brown-color);
-}
-.language-html .hljs-string {
-  color: #004d61;
-  color: var(--green-color--dark);
-}
-.language-xml .hljs-string {
-  color: #004d61;
-  color: var(--green-color--dark);
-}
-/* CSS Color */
-code.language-css {
-  color: #002f5b;
-  color: var(--blue-color--dark);
-}
-.language-css .hljs-selector-class {
-  color: #004d61;
-  color: var(--green-color--dark);
-}
-.language-css .hljs-attribute {
-  color: rgb(178, 112, 0);
-  color: var(--brown-color);
-}
-.language-css .hljs-comment {
-  color: #888;
-}
-/* 
-    .hljs-attribute {
-      color: #006984;
-    }
-    .hljs-keyword,
-    .hljs-selector-tag {
-      color: rgb(178, 112, 0);
-    }
-*/
 .iframe--fill {
   width: 100%;
   height: 100%;

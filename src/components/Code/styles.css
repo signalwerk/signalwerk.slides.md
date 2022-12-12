@@ -24,9 +24,12 @@ code.code--background,
   background-color: var(--code-color-background);
 }
 
-.hljs-keyword,
-.hljs-title.function_ {
+.hljs-keyword {
   color: var(--blue-color);
+}
+
+.hljs-title.function_ {
+  color: var(--cyan-color);
 }
 
 .hljs-attr,

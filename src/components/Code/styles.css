@@ -3,7 +3,7 @@ code {
   font-family: "IBM Plex Mono", monospace;
   white-space: pre;
   font-size: 90%;
-  line-height: 1.3;
+  line-height: 1.2;
   margin: 0;
 }
 
@@ -14,6 +14,11 @@ code {
   border-radius: 0.2em;
   padding: 0.1em 0.4em;
   margin: 0;
+}
+
+/* block code */
+pre:has(> code) {
+  line-height: 1.2;
 }
 
 code.code--background,

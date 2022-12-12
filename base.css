@@ -266,6 +266,15 @@ code {
   line-height: 1.3;
   margin: 0;
 }
+/*  inline code */
+:not(pre) > code {
+  background-color: #e6e8ea;
+  background-color: var(--gray-color);
+  font-size: 80%;
+  border-radius: 0.2em;
+  padding: 0.1em 0.4em;
+  margin: 0;
+}
 code.code--background,
 .code--background code {
   border-radius: 0.2em;

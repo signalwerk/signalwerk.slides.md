@@ -65,3 +65,6 @@ code.code--background,
 :is(.language-html, .language-xml) .hljs-name {
   color: var(--blue-color);
 }
+:is(.language-html, .language-xml) .hljs-string {
+  color: var(--green-color--dark);
+}

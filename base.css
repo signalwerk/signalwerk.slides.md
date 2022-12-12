@@ -274,7 +274,8 @@ code.code--background,
   background-color: rgba(0, 0, 0, 0.2);
   background-color: var(--code-color-background);
 }
-.hljs-keyword {
+.hljs-keyword,
+.hljs-title.function_ {
   color: #0054a2;
   color: var(--blue-color);
 }

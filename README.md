@@ -68,3 +68,7 @@ You can add a `href` parameter to the query string (`?href=http://examlple.com/s
 - [2022 · Working only for food, shelter and experience in the 21st century](https://signalwerk.github.io/talk.caminantes-grafico.project/) ([repo](https://github.com/signalwerk/talk.caminantes-grafico.project))
 - [2022 · My top three JavaScript errors](https://signalwerk.github.io/talk.js-fails/) ([repo](https://github.com/signalwerk/talk.js-fails))
 - [2022 · The new color vector fonts](https://signalwerk.github.io/talk.color-fonts/) ([repo](https://github.com/signalwerk/talk.color-fonts))
+- [2023 · JavaScript currying](https://signalwerk.github.io/talk.js.currying/) ([repo](https://github.com/signalwerk/talk.js.currying))
+- [2023 · Generative Snowflake · Creative Coding for Secret Santa](https://signalwerk.github.io/talk.visual.snowflake/) ([repo](https://github.com/signalwerk/talk.visual.snowflake))
+- [2023 · Git/GitLab/GitHub for Non-Developers](https://signalwerk.github.io/talk.git-for-non-devs/) ([repo](https://github.com/signalwerk/talk.git-for-non-devs))
+- [2023 · Conversational AI - an introductory session.](https://signalwerk.github.io/talk.conversational-ai-intro/) ([repo](https://github.com/signalwerk/talk.conversational-ai-intro))

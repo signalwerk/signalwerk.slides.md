@@ -16,7 +16,7 @@ _Why not a sub title?_
 
 <footer>
 
-2022 · Zurich · Stefan Huber
+2023 · Zurich · Stefan Huber
 
 </footer>
 

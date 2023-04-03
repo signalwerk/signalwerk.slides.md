@@ -1,0 +1,53 @@
+table {
+  width: 100%;
+  font-size: 0.9em;
+  border-collapse: collapse;
+
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+th:not([align]) {
+  text-align: left;
+}
+
+tr {
+  border-bottom: 1px solid var(--gray-color);
+}
+
+td,
+th {
+  vertical-align: top;
+  padding-right: 1em;
+
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+
+td:last-child,
+th:last-child {
+  padding-right: 0;
+}
+
+table {
+  /* lining figures in tables */
+  --work-sans-fea-pnum: "pnum" off;
+  --work-sans-fea-lnum: "lnum" on;
+
+  font-feature-settings: var(--work-sans-fea-aalt), var(--work-sans-fea-c2sc),
+    var(--work-sans-fea-calt), var(--work-sans-fea-case),
+    var(--work-sans-fea-dlig), var(--work-sans-fea-dnom),
+    var(--work-sans-fea-frac), var(--work-sans-fea-hist),
+    var(--work-sans-fea-liga), var(--work-sans-fea-lnum),
+    var(--work-sans-fea-locl), var(--work-sans-fea-nalt),
+    var(--work-sans-fea-numr), var(--work-sans-fea-onum),
+    var(--work-sans-fea-ordn), var(--work-sans-fea-ornm),
+    var(--work-sans-fea-pnum), var(--work-sans-fea-rvrn),
+    var(--work-sans-fea-salt), var(--work-sans-fea-sinf),
+    var(--work-sans-fea-smcp), var(--work-sans-fea-ss02),
+    var(--work-sans-fea-ss03), var(--work-sans-fea-ss04),
+    var(--work-sans-fea-ss05), var(--work-sans-fea-subs),
+    var(--work-sans-fea-sups), var(--work-sans-fea-tnum),
+    var(--work-sans-fea-zero), var(--work-sans-fea-cpsp),
+    var(--work-sans-fea-kern);
+}

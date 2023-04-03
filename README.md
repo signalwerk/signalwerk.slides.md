@@ -25,7 +25,7 @@
     <!-- styles -->
     <link
       rel="stylesheet"
-      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/fad766d/base.css"
+      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9875ea5/base.css"
       media="all"
     />
   </head>
@@ -33,7 +33,7 @@
     <!-- page content -->
     <signalwerk-slides href="slides.md"></signalwerk-slides>
     <!-- logic -->
-    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/fad766d/index.js"></script>
+    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9875ea5/index.js"></script>
   </body>
 </html>
 ```

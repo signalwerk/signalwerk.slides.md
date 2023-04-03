@@ -50,8 +50,5 @@ const processor = unified()
   .use(rehypeStringify);
 
 export function processMD(md) {
-  console.log("processing", md);
   return processor.process(md);
-
-  //   return { /* data: file.data.frontmatter, */ html: String(file) };
 }

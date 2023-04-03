@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import fm from "front-matter";
 import Slide from "../Slide/index.js";
 import { replaceVars } from "./replaceVars.js";
@@ -70,38 +70,42 @@ function Component({ md }) {
   const [hash, setHash] = useHash();
   const [select, setSelect] = useState(getIndexFromHash(hash));
 
+  const channel = useMemo(() => new BroadcastChannel("signalwerk·slides"), []);
+
+  useEffect(() => {
+    channel.addEventListener("message", (event) => {
+      console.log("got message", event.data);
+    });
+  }, []);
+
   const slides = md2slides(md);
   const count = Math.max(0, slides.length - 1);
 
   useEffect(() => {
-    console.log("hash effect");
-
     const parsed = getIndexFromHash(hash);
 
     if (parsed !== select) {
-      console.log("set select", parsed, select);
       setHash(`#/${select}`);
     }
   }, [hash, select]);
 
-  useKeypress("ArrowRight", () => {
+  useKeypress(["ArrowRight", "PageDown"], () => {
+    channel.postMessage({
+      direction: "next",
+    });
     setSelect((parsed) => clamp(parsed + 1, 0, count));
   });
 
-  useKeypress("ArrowLeft", () => {
-    setSelect((parsed) => clamp(parsed - 1, 0, count));
-  });
-
-  useKeypress("PageUp", () => {
-    setSelect((parsed) => clamp(parsed + 1, 0, count));
-  });
-
-  useKeypress("PageDown", () => {
+  useKeypress(["ArrowLeft", "PageUp"], () => {
+    channel.postMessage({
+      direction: "previous",
+    });
     setSelect((parsed) => clamp(parsed - 1, 0, count));
   });
 
   const current = clamp(select, 0, count);
 
+  // have to do this because archive.org should have a different handling
   const isArchiveOrg = navigator.userAgent.includes("archive.org_bot");
 
   return (

@@ -5,12 +5,17 @@ import { useState, useEffect } from "react";
 
 function useKeypress(key, action) {
   useEffect(() => {
+    // Ensure key is an array
+    const keys = Array.isArray(key) ? key : [key];
+
     function onKeyup(e) {
-      if (e.key === key) action();
+      // Check if e.key is included in the keys array
+      if (keys.includes(e.key)) action();
     }
+
     window.addEventListener("keyup", onKeyup);
     return () => window.removeEventListener("keyup", onKeyup);
-  }, []);
+  }, [key, action]);
 }
 
 export default useKeypress;

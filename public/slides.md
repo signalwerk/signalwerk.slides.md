@@ -201,6 +201,15 @@ background: true
 
 --s--
 
+## Table
+
+| Syntax    | Description |   Test Text |
+| :-------- | :---------: | ----------: |
+| Header    |    Title    | Here's this |
+| Paragraph |    Text     |    And more |
+
+--s--
+
 ## iFrame
 
 <div class="box--w80p box--ratio-16-9">

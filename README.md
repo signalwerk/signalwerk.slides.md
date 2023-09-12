@@ -74,3 +74,6 @@ You can add a `href` parameter to the query string (`?href=http://examlple.com/s
 - [2023 · Conversational AI - an introductory session.](https://signalwerk.github.io/talk.conversational-ai-intro/) ([repo](https://github.com/signalwerk/talk.conversational-ai-intro))
 - [2023 · AI for Development and Client Projects](https://signalwerk.github.io/talk.ai-development/) ([repo](https://github.com/signalwerk/talk.ai-development))
 - [2023 · Exploring the Impact of AI on Society and you](https://signalwerk.github.io/talk.ai-explore-impact/) ([repo](https://github.com/signalwerk/talk.ai-explore-impact))
+- [2023 · AI-Powered Search: Advancements and Impact](https://signalwerk.github.io/talk.ai-search/) ([repo](https://github.com/signalwerk/talk.ai-search))
+- [2023 · Conversational AI · an introductory session for Developers](https://signalwerk.github.io/talk.conversational-ai-dev/) ([repo](https://github.com/signalwerk/talk.conversational-ai-dev))
+- [2023 · OpenAI API and Open Source Alternatives: Which One is Right for You?](https://signalwerk.github.io/talk.ai-libre-and-openai-api/) ([repo](https://github.com/signalwerk/talk.ai-libre-and-openai-api))

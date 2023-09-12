@@ -1,0 +1,17 @@
+mark {
+  color: white;
+  background: var(--green-color);
+  text-shadow: none;
+  font-size: 100%;
+  border-radius: 0.2em;
+  padding: 0.1em 0.2em;
+  margin: 0;
+  -webkit-box-decoration-break: clone;
+  -ms-box-decoration-break: clone;
+  -o-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.mark--secondary {
+  color: #fff;
+  background: var(--brown-color);
+}

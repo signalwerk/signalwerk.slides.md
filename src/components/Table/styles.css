@@ -12,7 +12,7 @@ th:not([align]) {
 }
 
 tr {
-  border-bottom: 1px solid var(--gray-color);
+  border-bottom: max(0.06rem, 1px) solid var(--gray-color);
 }
 
 td,

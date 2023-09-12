@@ -17,6 +17,7 @@
 @import "./components/Code/styles.css";
 @import "./components/Iframe/styles.css";
 @import "./components/Table/styles.css";
+@import "./components/Mark/styles.css";
 
 /* slide */
 @import "./components/Slide/styles.css";

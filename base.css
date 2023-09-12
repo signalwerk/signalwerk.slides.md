@@ -463,8 +463,8 @@ th:not([align]) {
   text-align: left;
 }
 tr {
-  border-bottom: 1px solid #e6e8ea;
-  border-bottom: 1px solid var(--gray-color);
+  border-bottom: max(0.06rem, 1px) solid #e6e8ea;
+  border-bottom: max(0.06rem, 1px) solid var(--gray-color);
 }
 td,
 th {
@@ -550,6 +550,25 @@ table {
     var(--work-sans-fea-sups), var(--work-sans-fea-tnum),
     var(--work-sans-fea-zero), var(--work-sans-fea-cpsp),
     var(--work-sans-fea-kern);
+}
+mark {
+  color: white;
+  background: #006984;
+  background: var(--green-color);
+  text-shadow: none;
+  font-size: 100%;
+  border-radius: 0.2em;
+  padding: 0.1em 0.2em;
+  margin: 0;
+  -webkit-box-decoration-break: clone;
+  -ms-box-decoration-break: clone;
+  -o-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.mark--secondary {
+  color: #fff;
+  background: rgb(178, 112, 0);
+  background: var(--brown-color);
 }
 /* slide */
 /* PROPER THEMING */

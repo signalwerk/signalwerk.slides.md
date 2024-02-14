@@ -7,11 +7,12 @@ read talkname
 # fulltalkname="talk.ai-image-generation"
 fulltalkname="talk.$talkname"
 
-cd "$HOME/CODE/"
+root="$HOME/../DATA/CODE"
+cd "${root}/"
 
 gh repo create "$fulltalkname" --public --clone
 
-cd "$HOME/CODE/$fulltalkname"
+cd "${root}/$fulltalkname"
 
 mkdir -p ./docs/img
 touch ./docs/.nojekyll
@@ -59,8 +60,8 @@ echo "$readme" > README.md
 ## add to readme
 year=`date +'%Y'`
 info="- [$year · $talktitle](https://signalwerk.github.io/$fulltalkname/) ([repo](https://github.com/signalwerk/$fulltalkname))"
-echo "$info" >> "$HOME/CODE/signalwerk.slides.md/README.md"
-echo "$info" >> "$HOME/CODE/talks/README.md"
+echo "$info" >> "${root}/signalwerk.slides.md/README.md"
+echo "$info" >> "${root}/talks/README.md"
 echo "⚠️ signalwerk.slides.md is now having a new line in the readme.md"
 
 git add -A README.md
@@ -72,7 +73,7 @@ git commit -m "ADD: initial slides setup"
 git push origin HEAD:main
 
 
-gittower "$HOME/CODE/$fulltalkname"
+gittower "${root}/$fulltalkname"
 code .
 gh repo view -w
 

@@ -245,7 +245,6 @@ video.video--w100p,
 .img--pixelate {
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -webkit-optimize-contrast;
-      image-rendering: -o-pixelated;
       image-rendering: pixelated;
 }
 figure {
@@ -592,11 +591,9 @@ mark {
   height: 100%;
   z-index: -1;
 }
-.slides__content > h1:first-child,
-.slides__content > h2:first-child,
-.slides__content > h3:first-child {
+.slides__content > h2:first-child {
   margin-top: 0em;
-  margin-bottom: 2em;
+  margin-bottom: 1.75em;
 }
 /* 
 style-image 

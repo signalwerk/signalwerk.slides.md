@@ -11,12 +11,10 @@ import postcssImport from "postcss-import";
 import postcssCalc from "postcss-calc";
 import postcssNested from "postcss-nested";
 import postcssPresetEnv from "postcss-preset-env";
-import criticalSplit from "postcss-critical-split";
 import postcssMqPacker from "css-mqpacker"; // Pack same CSS media query rules into one using PostCSS
 import postcssSimpleVars from "postcss-simple-vars";
 import postcssMixins from "postcss-mixins";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import PostCssPipelineWebpackPlugin from "postcss-pipeline-webpack-plugin";
 // import postConditionals from "postcss-conditionals";
 
 /*-------------------------------------------------*/
@@ -51,6 +49,7 @@ const settings = {
   entry: {
     base: [resolve(rootPath, "./src/styles.css")],
     index: [resolve(rootPath, "./src/index.js")],
+    "image-player": [resolve(rootPath, "./src/image-player.js")], // Add this line
   },
 
   // output file(s) and chunks
@@ -129,36 +128,6 @@ const settings = {
   },
 
   plugins: [
-    // new interface for webpack >4
-    // ---------------------------------------------------------
-    // new CopyPlugin({
-    //   patterns: [
-    //     {
-    //       from: resolve(__dirname, "static"),
-    //       to: "", // copies all files to dist
-    //     },
-    //   ],
-    // }),
-    // ---------------------------------------------------------
-
-    new PostCssPipelineWebpackPlugin({
-      suffix: "critical",
-      processor: postcss([
-        criticalSplit({
-          output: criticalSplit.output_types.CRITICAL_CSS,
-        }),
-      ]),
-    }),
-
-    new PostCssPipelineWebpackPlugin({
-      suffix: "rest",
-      processor: postcss([
-        criticalSplit({
-          output: criticalSplit.output_types.REST_CSS,
-        }),
-      ]),
-    }),
-
     new MiniCssExtractPlugin({
       filename: "./[name].css",
       chunkFilename: "./[id].css",

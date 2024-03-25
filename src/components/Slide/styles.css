@@ -23,11 +23,9 @@
   z-index: -1;
 }
 
-.slides__content > h1:first-child,
-.slides__content > h2:first-child,
-.slides__content > h3:first-child {
+.slides__content > h2:first-child {
   margin-top: 0em;
-  margin-bottom: 2em;
+  margin-bottom: 1.75em;
 }
 
 /* 

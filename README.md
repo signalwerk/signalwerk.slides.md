@@ -40,6 +40,8 @@
 
 ## Setup · versioned
 
+Run it from everywhere `cd "$HOME/CODE/"` is in the `init.sh`
+
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/init.sh)
 ```

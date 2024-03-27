@@ -69,6 +69,7 @@ const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 function Component({ md }) {
   const [hash, setHash] = useHash();
   const [select, setSelect] = useState(getIndexFromHash(hash));
+  const [isPresenterWindow, setIsPresenterWindow] = useState(false);
 
   const channel = useMemo(() => new BroadcastChannel("signalwerk·slides"), []);
 
@@ -89,8 +90,22 @@ function Component({ md }) {
     }
   }, [hash, select]);
 
+  // post message when select changes
+  useEffect(() => {
+    channel.postMessage({
+      type: "navigation",
+      direction: "select",
+      select,
+    });
+  }, [select]);
+
+  useKeypress(["p"], () => {
+    setIsPresenterWindow((val) => !val);
+  });
+
   useKeypress(["ArrowRight", "PageDown"], () => {
     channel.postMessage({
+      type: "navigation",
       direction: "next",
     });
     setSelect((parsed) => clamp(parsed + 1, 0, count));
@@ -98,6 +113,7 @@ function Component({ md }) {
 
   useKeypress(["ArrowLeft", "PageUp"], () => {
     channel.postMessage({
+      type: "navigation",
       direction: "previous",
     });
     setSelect((parsed) => clamp(parsed - 1, 0, count));
@@ -109,7 +125,11 @@ function Component({ md }) {
   const isArchiveOrg = navigator.userAgent.includes("archive.org_bot");
 
   return (
-    <div className="Slides">
+    <div
+      className={`Slides ${
+        isPresenterWindow ? "Slides--isPresenterWindow" : ""
+      }`}
+    >
       {isArchiveOrg ? (
         slides.map((slide, index) => (
           <Slide key={slide.id} data={slide} hidden={index !== current} />

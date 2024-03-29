@@ -30,15 +30,24 @@ function Component({ data, hidden }) {
     >
       {data.slide.background && (
         <div className="slides__background">
-          <div
-            className="slides__background-inner"
-            style={{
-              backgroundColor: data.slide.background.color,
-              backgroundImage: `url(${data.slide.background.image})`,
-              backgroundPosition: `${data.slide.background.position}`,
-              backgroundSize: "cover",
-            }}
-          ></div>
+          {(data.slide.background.color || data.slide.background.image) && (
+            <div
+              className="slides__background-inner"
+              style={{
+                backgroundColor: data.slide.background.color,
+                backgroundImage: `url(${data.slide.background.image})`,
+                backgroundPosition: `${data.slide.background.position}`,
+                backgroundSize: "cover",
+              }}
+            ></div>
+          )}
+          {data.slide.background.iframe && (
+            <iframe
+              className="slides__background-iframe"
+              src={data.slide.background.iframe}
+              title="iframe"
+            ></iframe>
+          )}
         </div>
       )}
       <div className="slides__stage">

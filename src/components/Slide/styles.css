@@ -114,6 +114,7 @@ style-negative
   position: relative;
 }
 
+.slides__background-iframe,
 .slides__background-inner {
   width: 100%;
   height: 100%;

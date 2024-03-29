@@ -25,7 +25,7 @@
     <!-- styles -->
     <link
       rel="stylesheet"
-      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/fa0349d/base.css"
+      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/dc932cb/base.css"
       media="all"
     />
   </head>
@@ -33,7 +33,7 @@
     <!-- page content -->
     <signalwerk-slides href="slides.md"></signalwerk-slides>
     <!-- logic -->
-    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/fa0349d/index.js"></script>
+    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/dc932cb/index.js"></script>
   </body>
 </html>
 ```
@@ -59,10 +59,10 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ```html
 <link
   rel="stylesheet"
-  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/fa0349d/base.css"
+  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/dc932cb/base.css"
   media="all"
 />
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/fa0349d/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/dc932cb/index.js"></script>
 
 <image-player class="img--w100p" fps="3" autoplay addPlayPauseButton>
   <img src="./img/1.svg" alt="image" />

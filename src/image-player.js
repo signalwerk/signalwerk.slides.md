@@ -60,7 +60,7 @@ class ImagePlayerComponent extends HTMLElement {
     const mountPoint = document.createElement("div");
     this.appendChild(mountPoint);
 
-    const fps = parseInt(this.getAttribute("fps") || "1", 10);
+    const fps = parseFloat(this.getAttribute("fps") || "1.0");
     const autoplay = this.hasAttribute("autoplay");
     const className = this.getAttribute("class");
     const addPlayPauseButton = this.hasAttribute("addPlayPauseButton");

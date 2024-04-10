@@ -12,6 +12,8 @@
 
 .slide--hidden {
   opacity: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 .slides__background {
@@ -78,7 +80,6 @@ style-negative
 
   position: absolute;
   top: 50%;
-
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -146,5 +147,34 @@ style-negative
 
 .slide--style-negative strong {
   color: var(--cyan-color--light);
+}
+
+@media print {
+  @page {
+    size: calc(210mm/var(--slide-height)*var(--slide-width)) 210mm; /* fit to A4 */
+    margin: 0;
+  }
+
+  .slide {
+    position: relative;
+    height: 100vh;
+    aspect-ratio: var(--slide-width) / var(--slide-height);
+    page-break-before: always;
+  }
+
+  .slides__stage {
+    top: 0;
+    left: 0;
+    -webkit-transform: none;
+            transform: none;
+  }
+
+  .slide--hidden {
+    opacity: 1;
+  }
+
+  .noPrint {
+    display: none;
+  }
 }
 

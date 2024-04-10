@@ -57,7 +57,7 @@ Illustration by [Benjamin Güdel](http://www.guedel.biz/) · 2020
 
 <footer>
 
-Text [Link](https://github.com) with _emphasis_ and **strong**
+Footer: Text [Link](https://github.com) with _emphasis_ and **strong**
 
 </footer>
 
@@ -79,7 +79,7 @@ background: true
 
 <footer>
 
-Text [Link](https://github.com) with _emphasis_ and **strong**
+Footer: Text [Link](https://github.com) with _emphasis_ and **strong**
 
 </footer>
 
@@ -89,7 +89,7 @@ Text [Link](https://github.com) with _emphasis_ and **strong**
 
 <div class="box box--w50p box--img-cover box--right">
 
-![](https://upload.wikimedia.org/wikipedia/commons/8/8d/Zwei_wandernde_Gesellen%2C_2006.jpg)
+![alt text](https://portrait.signalwerk.ch/illustration/2020/rgb/w4000/stefan-huber.jpg)
 
 </div>
 
@@ -106,21 +106,9 @@ Text [Link](https://github.com) with _emphasis_ and **strong**
 
 --s--
 
-## Title
+## Image by height (default)
 
-# Big Text
-
-<footer>
-
-Source: [Wikipedia · Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
-
-</footer>
-
---s--
-
-## Image by height
-
-![](https://interaction.signalwerk.ch/static/a0069e27aae7892ab3026f2757aa593e/13566/Arial_a_outline.png)
+![alt text](https://portrait.signalwerk.ch/illustration/2020/rgb/w4000/stefan-huber.jpg)
 
 --s--
 
@@ -160,21 +148,6 @@ Source: [Wikipedia · Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_c
 
 --s--
 
-```fm
-style: negative
-background: true
-```
-
-## Negative Style
-
-# Big Text
-
---s--
-
-## Curvature Tool
-
---s--
-
 ## Grid
 
 <div class="grid">
@@ -192,7 +165,7 @@ background: true
 
 --s--
 
-## Curvature Tool
+## Video
 
 <video controls>
   <source src="/img-curve/bezier-by-adobe.mp4" type="video/mp4" />
@@ -221,6 +194,16 @@ background: true
 
 --s--
 
+```fm
+style: image
+background:
+  iframe: https://signalwerk.github.io/visual.spiral-3d.typo/
+```
+
+## iFrame as background
+
+--s--
+
 ## Code
 
 ```html
@@ -236,42 +219,14 @@ background: true
 
 --s--
 
-## Code
-
-```js
-// comment
-const car = {
-  name: "Toyota",
-  wheels: 4,
-};
-console.log(car);
-```
-
---s--
-
-## Code
-
-```css
-root {
-  color: red;
-}
-@keyframes test {
-  0% {
-    height: 2px;
-  }
-}
-```
-
---s--
-
 ## Print
 
-- Add [x](./?print) to the URL to get a printable version
+- Add [`?print`](./?print) to the URL to get a printable version
 - The utility class `.noPrint` hides elements in print
 
 <div class="noPrint">
 
-* This is not visible in print
+- This is not visible in print
 
 </div>
 

@@ -264,6 +264,19 @@ root {
 
 --s--
 
+## Print
+
+- Add [x](./?print) to the URL to get a printable version
+- The utility class `.noPrint` hides elements in print
+
+<div class="noPrint">
+
+* This is not visible in print
+
+</div>
+
+--s--
+
 ```fm
 style: negative
 background: true

@@ -124,13 +124,16 @@ function Component({ md }) {
   // have to do this because archive.org should have a different handling
   const isArchiveOrg = navigator.userAgent.includes("archive.org_bot");
 
+  // are we in print mode?
+  const isPrint = new URLSearchParams(window.location.search).has("print");
+
   return (
     <div
       className={`Slides ${
         isPresenterWindow ? "Slides--isPresenterWindow" : ""
       }`}
     >
-      {isArchiveOrg ? (
+      {isArchiveOrg || isPrint ? (
         slides.map((slide, index) => (
           <Slide key={slide.id} data={slide} hidden={index !== current} />
         ))

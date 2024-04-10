@@ -40,7 +40,7 @@
 
 ## Setup · versioned
 
-Run it from everywhere `cd "$HOME/CODE/"` is in the `init.sh`
+Run it from everywhere `cd "$HOME/../DATA/CODE"` is in the `init.sh`. Be careful if you don't want to install it in this directory!
 
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/init.sh)
@@ -103,3 +103,4 @@ You can add a `href` parameter to the query string (`?href=http://examlple.com/s
 - [2023 · Large Language Models – news of the last 6 months](https://signalwerk.github.io/talk.ai-llm-news-2023-Q3/) ([repo](https://github.com/signalwerk/talk.ai-llm-news-2023-Q3))
 - [2023 · Search and categorise text with AI](https://signalwerk.github.io/talk.ai-embeddings-workshop/) ([repo](https://github.com/signalwerk/talk.ai-embeddings-workshop))
 - [2024 · Design Paged Media with HTM/CSS](https://signalwerk.github.io/talk.paged-media/) ([repo](https://github.com/signalwerk/talk.paged-media))
+- [2024 · Fonts with stylistic, contextual, and ‘random’ alternatives](https://signalwerk.github.io/talk.fonts.alternatives/) ([repo](https://github.com/signalwerk/talk.fonts.alternatives))

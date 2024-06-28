@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js",
-    "build": "NODE_ENV=production webpack --config ./webpack.config.js && touch ./dist/.nojekyll",
+    "copy:modules": "cp -r ./src/modules ./dist",
+    "build": "NODE_ENV=production webpack --config ./webpack.config.js && touch ./dist/.nojekyll && npm run copy:modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -54,15 +54,41 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 
 ## Modules
 
+### Carousel Player
+
+```html
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/b9029b1/modules/carousel-player/index.js"></script>
+
+<carousel-player>
+  <img src="./img/1.svg" alt="image" />
+  <img src="./img/2.svg" alt="image" />
+  <img src="./img/3.svg" alt="image" />
+  <!-- more images -->
+</carousel-player>
+```
+
+### Speaker Video
+
+```html
+<link
+  rel="stylesheet"
+  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/b9029b1/modules/speaker-video/styles.css"
+  media="all"
+/>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/b9029b1/modules/speaker-video/index.js"></script>
+
+<speaker-video></speaker-video>
+```
+
 ### Play Images
 
 ```html
 <link
   rel="stylesheet"
-  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/b9029b1/base.css"
+  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/b9029b1/image-player.css"
   media="all"
 />
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/b9029b1/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/b9029b1/image-player.js"></script>
 
 <image-player class="img--w100p" fps="3" autoplay addPlayPauseButton>
   <img src="./img/1.svg" alt="image" />
@@ -104,3 +130,5 @@ You can add a `href` parameter to the query string (`?href=http://examlple.com/s
 - [2023 · Search and categorise text with AI](https://signalwerk.github.io/talk.ai-embeddings-workshop/) ([repo](https://github.com/signalwerk/talk.ai-embeddings-workshop))
 - [2024 · Design Paged Media with HTM/CSS](https://signalwerk.github.io/talk.paged-media/) ([repo](https://github.com/signalwerk/talk.paged-media))
 - [2024 · Fonts with stylistic, contextual, and ‘random’ alternatives](https://signalwerk.github.io/talk.fonts.alternatives/) ([repo](https://github.com/signalwerk/talk.fonts.alternatives))
+- [2024 · Neue Modelle für Organisationen und Firmen: Soziokratie und Holakratie.](https://signalwerk.github.io/talk.newnion.holacracy/) ([repo](https://github.com/signalwerk/talk.newnion.holacracy))
+- [2024 · Web Components – Should I Be Interested?](https://signalwerk.github.io/talk.web-components/) ([repo](https://github.com/signalwerk/talk.web-components))

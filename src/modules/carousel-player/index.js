@@ -119,4 +119,4 @@ class CarouselElement extends HTMLElement {
   }
 }
 
-customElements.define("carousel-component", CarouselElement);
+customElements.define("carousel-player", CarouselElement);

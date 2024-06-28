@@ -1,5 +1,5 @@
-code {
-  /* display: block; */
+code,
+.code {
   font-family: "IBM Plex Mono", monospace;
   white-space: pre;
   font-size: 90%;

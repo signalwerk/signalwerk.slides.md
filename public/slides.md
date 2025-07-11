@@ -239,4 +239,27 @@ background: true
 
 ## exit 0; thx
 
-# Questions?
+# _Questions?_
+
+<style>
+  .contact-links {
+    padding-bottom: 1rem;
+    font-size: .8rem;
+  }
+  .contact-links a {
+    color: white;
+  }
+  .contact-links a:after {
+    display: none;
+  }
+</style>
+
+<footer class="contact-links">
+
+**Stefan Huber** · sh@signalwerk.ch  
+[mastodon.social/@signalwerk](https://mastodon.social/@signalwerk)  
+[instagram.com/signalwerk](https://instagram.com/signalwerk)  
+[linkedin.com/in/signalwerk](https://linkedin.com/in/signalwerk)  
+[github.com/signalwerk](https://github.com/signalwerk)
+
+</footer>

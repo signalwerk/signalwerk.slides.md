@@ -67,6 +67,17 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 </carousel-player>
 ```
 
+### Timer (count down)
+
+```html
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/33179a9/modules/timer-countdown/index.js"></script>
+
+<timer-countdown time="00:01:00" />
+<!-- or if you have multiple timers -->
+<timer-countdown id="timerA" time="00:02:00" />
+<timer-countdown id="timerB" time="00:03:00" />
+```
+
 ### Speaker Video
 
 ```html

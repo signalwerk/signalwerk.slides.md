@@ -7,12 +7,33 @@ read talkname
 # fulltalkname="talk.ai-image-generation"
 fulltalkname="talk.$talkname"
 
-root="$HOME/../DATA/CODE"
-cd "${root}/"
+echo "Choose root directory:"
+echo "1) \$HOME/../DATA/CODE (default)"
+echo "2) Current folder ($(pwd))"
+read -p "Enter choice (1 or 2) [default: 1]: " root_choice
 
-gh repo create "$fulltalkname" --public --clone
+if [ "$root_choice" = "2" ]; then
+    root="$(pwd)"
+else
+    root="$HOME/../DATA/CODE"
+fi
 
-cd "${root}/$fulltalkname"
+echo "Repository visibility:"
+echo "1) Public (default)"
+echo "2) Private"
+read -p "Enter choice (1 or 2) [default: 1]: " visibility_choice
+
+if [ "$visibility_choice" = "2" ]; then
+    repo_visibility="--private"
+else
+    repo_visibility="--public"
+fi
+
+cd "${root}/" || exit
+
+gh repo create "$fulltalkname" $repo_visibility --clone
+
+cd "${root}/$fulltalkname" || exit
 
 mkdir -p ./docs/img
 touch ./docs/.nojekyll

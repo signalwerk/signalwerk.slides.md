@@ -108,6 +108,15 @@ live-server
 
 You can add a `href` parameter to the query string (`?href=http://examlple.com/slides.md`) in the browser to override the slides location where we will load the markdown from.
 
+<!--
+
+## Private
+
+- [2025 · Assessment Digital Lead](https://signalwerk.github.io/talk.assessment-collective-action-foundation/) ([repo](https://github.com/signalwerk/talk.assessment-collective-action-foundation))
+
+
+-->
+
 ## Usage
 
 - [2022 · Image style transfer and digital image generation with AI](https://signalwerk.github.io/talk.ai-image-generation/) ([repo](https://github.com/signalwerk/talk.ai-image-generation))
@@ -132,3 +141,7 @@ You can add a `href` parameter to the query string (`?href=http://examlple.com/s
 - [2024 · Fonts with stylistic, contextual, and ‘random’ alternatives](https://signalwerk.github.io/talk.fonts.alternatives/) ([repo](https://github.com/signalwerk/talk.fonts.alternatives))
 - [2024 · Neue Modelle für Organisationen und Firmen: Soziokratie und Holakratie.](https://signalwerk.github.io/talk.newnion.holacracy/) ([repo](https://github.com/signalwerk/talk.newnion.holacracy))
 - [2024 · Web Components – Should I Be Interested?](https://signalwerk.github.io/talk.web-components/) ([repo](https://github.com/signalwerk/talk.web-components))
+- [2025 · Cloudflare Workers](https://signalwerk.github.io/talk.cloudflare-workers/) ([repo](https://github.com/signalwerk/talk.cloudflare-workers))
+- [2025 · Maschinelles Stricken](https://signalwerk.github.io/talk.knitting-machine/) ([repo](https://github.com/signalwerk/talk.knitting-machine))
+- [2025 · Cyanotypie](https://signalwerk.github.io/talk.cyanotypie/) ([repo](https://github.com/signalwerk/talk.cyanotypie))
+- [2025 · Pixelfonts like it's 1982](https://signalwerk.github.io/workshop.pixelfont/) ([repo](https://github.com/signalwerk/workshop.pixelfont))

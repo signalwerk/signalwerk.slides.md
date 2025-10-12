@@ -32,6 +32,24 @@ const template = /* HTML */ `
     #display {
       font-weight: bold;
       text-align: center;
+      cursor: pointer;
+    }
+
+    #display.editable {
+      cursor: text;
+    }
+
+    #time-input {
+      display: none;
+      font-weight: bold;
+      text-align: center;
+      border: 2px solid var(--blue-color);
+      border-radius: 0;
+      padding: 0.2em;
+      font-family: inherit;
+      font-size: inherit;
+      background: white;
+      box-sizing: border-box;
     }
 
     #controls {
@@ -73,6 +91,7 @@ const template = /* HTML */ `
     }
   </style>
   <div id="display">00:00:00</div>
+  <input id="time-input" type="text" />
   <div id="controls">
     <button id="reset">${LABELS.reset}</button>
     <button id="stop">${LABELS.pause}</button>
@@ -98,6 +117,7 @@ class TimerCountdown extends HTMLElement {
 
     // Get DOM elements
     this.display = this.shadowRoot.getElementById("display");
+    this.timeInput = this.shadowRoot.getElementById("time-input");
     this.startBtn = this.shadowRoot.getElementById("start");
     this.stopBtn = this.shadowRoot.getElementById("stop");
     this.resetBtn = this.shadowRoot.getElementById("reset");
@@ -106,6 +126,7 @@ class TimerCountdown extends HTMLElement {
     this.startBtn.addEventListener("click", () => this.start());
     this.stopBtn.addEventListener("click", () => this.pause());
     this.resetBtn.addEventListener("click", () => this.reset());
+    this.display.addEventListener("dblclick", () => this.editTime());
 
     // Initialize
     this.init();
@@ -183,27 +204,102 @@ class TimerCountdown extends HTMLElement {
   }
 
   updateButtons() {
+    const canEdit = !this.hasBeenStarted && this.remainingTime > 0;
+
     if (this.remainingTime <= 0) {
       // Timer finished - only show reset
       this.startBtn.style.display = "none";
       this.stopBtn.style.display = "none";
       this.resetBtn.style.display = "block";
+      this.display.classList.remove("editable");
     } else if (this.isRunning) {
       // Timer running - show stop button only
       this.startBtn.style.display = "none";
       this.stopBtn.style.display = "block";
       this.resetBtn.style.display = "none";
+      this.display.classList.remove("editable");
     } else if (this.hasBeenStarted) {
       // Timer paused - show start and reset
       this.startBtn.style.display = "block";
       this.stopBtn.style.display = "none";
       this.resetBtn.style.display = "block";
+      this.display.classList.remove("editable");
     } else {
-      // Initial state - only show start
+      // Initial state - only show start, allow editing
       this.startBtn.style.display = "block";
       this.stopBtn.style.display = "none";
       this.resetBtn.style.display = "none";
+      this.display.classList.add("editable");
     }
+  }
+
+  editTime() {
+    // Only allow editing in initial state
+    if (this.hasBeenStarted || this.isRunning || this.remainingTime <= 0) {
+      return;
+    }
+
+    // Show input, hide display
+    this.display.style.display = "none";
+    this.timeInput.style.display = "block";
+    this.timeInput.value = this.formatTime(this.remainingTime);
+    this.timeInput.focus();
+    this.timeInput.select();
+
+    // Handle input events
+    const finishEdit = () => {
+      const newTime = this.timeInput.value.trim();
+      if (newTime && this.isValidTimeFormat(newTime)) {
+        this.parseTime(newTime);
+        this.saveCustomTime();
+      }
+
+      // Hide input, show display
+      this.timeInput.style.display = "none";
+      this.display.style.display = "block";
+      this.updateDisplay();
+    };
+
+    const cancelEdit = () => {
+      // Hide input, show display without saving
+      this.timeInput.style.display = "none";
+      this.display.style.display = "block";
+    };
+
+    // Remove any existing listeners
+    this.timeInput.onblur = null;
+    this.timeInput.onkeydown = null;
+
+    // Add event listeners
+    this.timeInput.onblur = finishEdit;
+    this.timeInput.onkeydown = (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        finishEdit();
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        cancelEdit();
+      }
+    };
+  }
+
+  isValidTimeFormat(timeString) {
+    // Check if time format is valid (HH:MM:SS or MM:SS)
+    const timeRegex = /^(\d{1,2}:)?\d{1,2}:\d{2}$/;
+    return timeRegex.test(timeString);
+  }
+
+  saveCustomTime() {
+    // Save the custom time to localStorage
+    const key = this.getStorageKey();
+    if (!key) return;
+
+    const state = {
+      customTime: this.initialTime,
+      state: "initial",
+    };
+
+    localStorage.setItem(key, JSON.stringify(state));
   }
 
   start() {
@@ -306,6 +402,7 @@ class TimerCountdown extends HTMLElement {
       start: this.startTimestamp,
       hasBeenStarted: this.hasBeenStarted,
       pausedRemainingTime: this.pausedRemainingTime,
+      customTime: this.initialTime, // Always save the current initial time
     };
 
     localStorage.setItem(key, JSON.stringify(state));
@@ -320,6 +417,12 @@ class TimerCountdown extends HTMLElement {
 
     try {
       const state = JSON.parse(stored);
+
+      // Restore custom time if it exists
+      if (state.customTime && state.customTime !== this.initialTime) {
+        this.initialTime = state.customTime;
+        this.remainingTime = this.initialTime;
+      }
 
       // Restore hasBeenStarted flag
       this.hasBeenStarted = state.hasBeenStarted || false;
@@ -358,7 +461,7 @@ class TimerCountdown extends HTMLElement {
         this.isRunning = false;
         this.startTimestamp = state.start;
       }
-      // If state is 'initial' or undefined, keep default values
+      // If state is 'initial' or undefined, keep default values (including custom time)
     } catch (e) {
       console.error("Failed to restore timer state:", e);
       this.clearTimerState();

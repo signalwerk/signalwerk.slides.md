@@ -45,9 +45,11 @@ curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/REA
 curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/public/slides.md" > ./docs/slides.md
 
 ## set title
+year=`date +'%Y'`
+
 sed -i '' -E "s|(<title>)([^<]+)(</title>)|\1$talktitle\3|g" ./docs/index.html
 sed -i '' -E "s|title:.*|title: $talktitle|g" ./docs/slides.md
-
+sed -i '' -E "s|202X|$year|g" ./docs/slides.md
 
 bts='```'
 bt='`'
@@ -79,7 +81,6 @@ EOF
 echo "$readme" > README.md
 
 ## add to readme
-year=`date +'%Y'`
 info="- [$year · $talktitle](https://signalwerk.github.io/$fulltalkname/) ([repo](https://github.com/signalwerk/$fulltalkname))"
 echo "$info" >> "${root}/signalwerk.slides.md/README.md"
 echo "$info" >> "${root}/talks/README.md"

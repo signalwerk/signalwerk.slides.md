@@ -16,7 +16,7 @@ _Why not a sub title?_
 
 <footer>
 
-2024 · Zurich · Stefan Huber
+202X · Zurich · Stefan Huber
 
 </footer>
 

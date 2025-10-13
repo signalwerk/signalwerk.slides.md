@@ -8,6 +8,7 @@ const template = /* HTML */ `
   <style>
     :host {
       display: inline-block;
+      line-height: 1;
 
       --work-sans-fea-tnum: "tnum" on;
 
@@ -90,12 +91,14 @@ const template = /* HTML */ `
       }
     }
   </style>
-  <div id="display">00:00:00</div>
-  <input id="time-input" type="text" />
-  <div id="controls">
-    <button id="reset">${LABELS.reset}</button>
-    <button id="stop">${LABELS.pause}</button>
-    <button id="start">${LABELS.start}</button>
+  <div class="timer-countdown">
+    <div id="display">00:00:00</div>
+    <input id="time-input" type="text" />
+    <div id="controls">
+      <button id="reset">${LABELS.reset}</button>
+      <button id="stop">${LABELS.pause}</button>
+      <button id="start">${LABELS.start}</button>
+    </div>
   </div>
 `;
 

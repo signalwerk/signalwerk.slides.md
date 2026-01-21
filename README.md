@@ -25,7 +25,7 @@
     <!-- styles -->
     <link
       rel="stylesheet"
-      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41ff459/base.css"
+      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/base.css"
       media="all"
     />
   </head>
@@ -33,7 +33,7 @@
     <!-- page content -->
     <signalwerk-slides href="slides.md"></signalwerk-slides>
     <!-- logic -->
-    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41ff459/index.js"></script>
+    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/index.js"></script>
   </body>
 </html>
 ```
@@ -57,7 +57,7 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ### Carousel Player
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41ff459/modules/carousel-player/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/modules/carousel-player/index.js"></script>
 
 <carousel-player>
   <img src="./img/1.svg" alt="image" />
@@ -70,7 +70,7 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ### Timer (count down)
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41ff459/modules/timer-countdown/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/modules/timer-countdown/index.js"></script>
 
 <timer-countdown time="00:01:00" />
 <!-- or if you have multiple timers -->
@@ -83,10 +83,10 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ```html
 <link
   rel="stylesheet"
-  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41ff459/modules/speaker-video/styles.css"
+  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/modules/speaker-video/styles.css"
   media="all"
 />
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41ff459/modules/speaker-video/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/modules/speaker-video/index.js"></script>
 
 <speaker-video></speaker-video>
 ```
@@ -96,10 +96,10 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ```html
 <link
   rel="stylesheet"
-  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41ff459/image-player.css"
+  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/image-player.css"
   media="all"
 />
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41ff459/image-player.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/image-player.js"></script>
 
 <image-player class="img--w100p" fps="3" autoplay addPlayPauseButton>
   <img src="./img/1.svg" alt="image" />
@@ -112,7 +112,7 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ### Random Selection
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41ff459/modules/random-selection/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/modules/random-selection/index.js"></script>
 
 <!-- Using predefined datasets -->
 <random-selection data-set="oblique-strategies"></random-selection>

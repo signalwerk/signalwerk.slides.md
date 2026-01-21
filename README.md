@@ -72,10 +72,11 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ```html
 <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/74c2773/modules/timer-countdown/index.js"></script>
 
-<timer-countdown time="00:01:00" />
+<timer-countdown time="00:01:00"></timer-countdown>
+
 <!-- or if you have multiple timers -->
-<timer-countdown id="timerA" time="00:02:00" />
-<timer-countdown id="timerB" time="00:03:00" />
+<timer-countdown id="timerA" time="00:02:00"></timer-countdown>
+<timer-countdown id="timerB" time="00:03:00"></timer-countdown>
 ```
 
 ### Speaker Video

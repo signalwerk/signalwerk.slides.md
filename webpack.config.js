@@ -1,5 +1,6 @@
 import { fileURLToPath } from "url";
 import { dirname, resolve } from "path";
+import { glob } from "glob";
 
 import webpack from "webpack";
 
@@ -36,20 +37,23 @@ let rootPath = __dirname;
 //   rootPath = resolve(__dirname, "../../");
 // }
 
+// Dynamically find all modules
+const moduleEntries = {};
+const moduleFiles = glob.sync("./src/modules/*/index.js", { cwd: rootPath });
+moduleFiles.forEach((file) => {
+  const moduleName = file.match(/\/modules\/([^\/]+)\/index\.js$/)[1];
+  moduleEntries[`modules/${moduleName}/index`] = resolve(rootPath, file);
+});
+
 const settings = {
   // webpack optimization mode
   mode: process.env.NODE_ENV ? process.env.NODE_ENV : "development",
-
-  // resolve: {
-  //   // configuration options
-  //   buffer: bufferPoly,
-  // },
 
   // entry file(s)
   entry: {
     base: [resolve(rootPath, "./src/styles.css")],
     index: [resolve(rootPath, "./src/index.js")],
-    "image-player": [resolve(rootPath, "./src/image-player.js")], // Add this line
+    ...moduleEntries,
   },
 
   // output file(s) and chunks

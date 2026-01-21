@@ -41,6 +41,9 @@ touch ./docs/.nojekyll
 ## download and cut html out of readme
 curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/README.md" | sed -e/DOCTYPE/\{ -e:1 -en\;b1 -e\} -ed  | awk '/```/{stop=1} stop==0{print}' > ./docs/index.html
 
+## remove module lines with data="del" (only for modules testing during development)
+sed -i '' '/data="del"/d' ./docs/index.html
+
 ## add initial slides
 curl "https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/public/slides.md" > ./docs/slides.md
 

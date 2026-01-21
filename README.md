@@ -114,6 +114,10 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ```html
 <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/007200a/modules/random-selection/index.js"></script>
 
+<!-- Using predefined datasets -->
+<random-selection data-set="oblique-strategies"></random-selection>
+
+<!-- Using custom content -->
 <random-selection>
   <li>Use an old idea</li>
   <li>What would your closest friend do?</li>
@@ -124,6 +128,10 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
   <li>Strip it to its essentials</li>
 </random-selection>
 ```
+
+**Available datasets:**
+
+- `oblique-strategies`: Brian Eno & Peter Schmidt's creative strategies
 
 ## Live preview
 

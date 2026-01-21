@@ -232,6 +232,19 @@ background:
 
 --s--
 
+## Modules
+
+### Random Selection & Timer Countdown
+
+<random-selection data-set="oblique-strategies"></random-selection>
+
+<div style="position: absolute; top: .3em; right: 0;">
+<timer-countdown time="00:01:00"></timer-countdown>
+</div>
+
+
+--s--
+
 ```fm
 style: negative
 background: true

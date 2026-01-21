@@ -1,4 +1,4 @@
-const template = /* HTML */ `
+const templateRandomSelectionElement = /* HTML */ `
   <style>
     :host {
       display: block;
@@ -87,7 +87,7 @@ class RandomSelectionElement extends HTMLElement {
     super();
 
     this.attachShadow({ mode: "open" });
-    this.shadowRoot.innerHTML = template;
+    this.shadowRoot.innerHTML = templateRandomSelectionElement;
 
     this.selectionArea = this.shadowRoot.getElementById("selection-area");
     this.drawButton = this.shadowRoot.getElementById("draw-button");

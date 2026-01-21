@@ -109,6 +109,22 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 </image-player>
 ```
 
+### Random Selection
+
+```html
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1002826/modules/random-selection/index.js"></script>
+
+<random-selection>
+  <li>Use an old idea</li>
+  <li>What would your closest friend do?</li>
+  <li>Honor thy error as a hidden intention</li>
+  <li>Look closely at the most embarrassing details and amplify them</li>
+  <li>What mistakes did you make last time?</li>
+  <li>Turn it upside down</li>
+  <li>Strip it to its essentials</li>
+</random-selection>
+```
+
 ## Live preview
 
 Make sure you have live-server (`npm install -g live-server`)

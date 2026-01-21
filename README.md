@@ -120,13 +120,9 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 
 <!-- Using custom content -->
 <random-selection>
-  <li>Use an old idea</li>
-  <li>What would your closest friend do?</li>
-  <li>Honor thy error as a hidden intention</li>
-  <li>Look closely at the most embarrassing details and amplify them</li>
-  <li>What mistakes did you make last time?</li>
-  <li>Turn it upside down</li>
   <li>Strip it to its essentials</li>
+  <li>Use an old idea</li>
+  <li>Turn it upside down</li>
 </random-selection>
 ```
 

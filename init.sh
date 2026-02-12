@@ -85,8 +85,8 @@ echo "$readme" > README.md
 
 ## add to readme
 info="- [$year · $talktitle](https://signalwerk.github.io/$fulltalkname/) ([repo](https://github.com/signalwerk/$fulltalkname))"
-echo "$info" >> "${root}/signalwerk.slides.md/README.md"
-echo "$info" >> "${root}/talks/README.md"
+echo "$info" >> "$HOME/../DATA/CODE/signalwerk.slides.md/README.md"
+echo "$info" >> "$HOME/../DATA/CODE/talks/README.md"
 echo "ℹ️ signalwerk.slides.md is now having a new line in the readme.md"
 
 git add -A README.md

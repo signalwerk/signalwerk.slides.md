@@ -177,3 +177,4 @@ You can add a `href` parameter to the query string (`?href=http://examlple.com/s
 - [2025 · Maschinelles Stricken](https://signalwerk.github.io/talk.knitting-machine/) ([repo](https://github.com/signalwerk/talk.knitting-machine))
 - [2025 · Cyanotypie](https://signalwerk.github.io/talk.cyanotypie/) ([repo](https://github.com/signalwerk/talk.cyanotypie))
 - [2025 · Pixelfonts like it's 1982](https://signalwerk.github.io/workshop.pixelfont/) ([repo](https://github.com/signalwerk/workshop.pixelfont))
+- [2026 · Von Scans alter Schreibmaschinenseiten zum Font – Scheinzufall als Schriftprinzip](https://signalwerk.github.io/talk.random-typewriter-fonts/) ([repo](https://github.com/signalwerk/talk.random-typewriter-fonts))

@@ -140,13 +140,13 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 <!-- Optional attributes -->
 <qr-code
   data="https://signalwerk.ch"
-  size="500"
+  size="650"
   margin="0"
   ec-level="M"
 ></qr-code>
 ```
 
-Defaults: `size="500"`, `margin="0"` (in elements), `ec-level="M"` (valid values: L, M, Q, H).
+Defaults: `size="650"`, `margin="0"` (in elements), `ec-level="M"` (valid values: L, M, Q, H).
 
 ## Live preview
 

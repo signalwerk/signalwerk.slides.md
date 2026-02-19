@@ -54,7 +54,7 @@ class QrCodeElement extends HTMLElement {
       return;
     }
 
-    const defaultSize = 500;
+    const defaultSize = 650;
     const defaultMargin = 0;
 
     const sizeAttr = Number.parseInt(

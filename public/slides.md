@@ -242,6 +242,12 @@ background:
 <timer-countdown time="00:01:00"></timer-countdown>
 </div>
 
+--s--
+
+### QR Code
+
+<qr-code data="https://signalwerk.ch"></qr-code>
+
 
 --s--
 

@@ -130,6 +130,24 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 
 - `oblique-strategies`: Brian Eno & Peter Schmidt's creative strategies
 
+### QR Code
+
+```html
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/e0a42cc/modules/qr-code/index.js"></script>
+
+<qr-code data="https://signalwerk.ch"></qr-code>
+
+<!-- Optional attributes -->
+<qr-code
+  data="https://signalwerk.ch"
+  size="500"
+  margin="0"
+  ec-level="M"
+></qr-code>
+```
+
+Defaults: `size="500"`, `margin="0"` (in elements), `ec-level="M"` (valid values: L, M, Q, H).
+
 ## Live preview
 
 Make sure you have live-server (`npm install -g live-server`)

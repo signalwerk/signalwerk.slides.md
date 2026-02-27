@@ -246,7 +246,7 @@ background:
 
 ## Modules Carousel Player · autoplay
 
-<div class="box--w80p box--ratio-16-9">
+<div class="box--w80p">
 <carousel-player class="img--w100p" duration="1000" loop autoplay>
   <img src="https://placecats.com/neo/800/450" alt="image" />
   <img src="https://placecats.com/millie/800/450" alt="image" />
@@ -259,26 +259,13 @@ background:
 
 ## Modules Carousel Player · manual
 
-<div class="box--w80p box--ratio-16-9">
+<div class="box--w80p">
 <carousel-player class="img--w100p" transition="smooth" controls loop>
   <img src="https://placecats.com/neo/800/450" alt="image" />
   <img src="https://placecats.com/millie/800/450" alt="image" />
   <img src="https://placecats.com/louie/800/450" alt="image" />
   <!-- more images -->
 </carousel-player>
-</div>
-
---s--
-
-## Modules Object Player
-
-<div class="box--w80p box--ratio-16-9">
-<object-player class="img--w100p" fps="3" autoplay addPlayPauseButton>
-  <img src="https://placecats.com/neo/800/450" alt="image" />
-  <img src="https://placecats.com/millie/800/450" alt="image" />
-  <img src="https://placecats.com/louie/800/450" alt="image" />
-  <!-- more images -->
-</object-player>
 </div>
 
 --s--

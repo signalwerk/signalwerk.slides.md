@@ -29,6 +29,7 @@ class CarouselElement extends HTMLElement {
           overflow-x: scroll;
           width: 100%;
           scroll-snap-type: x mandatory;
+          scrollbar-width: none;
         }
         #images.smooth {
           scroll-behavior: smooth;

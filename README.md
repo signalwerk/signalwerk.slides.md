@@ -92,23 +92,33 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 <speaker-video></speaker-video>
 ```
 
-### Play Images
+### Carousel Player
 
 ```html
-<link
-  rel="stylesheet"
-  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/dee1207/image-player.css"
-  media="all"
-/>
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/dee1207/image-player.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/dee1207/modules/carousel-player/index.js"></script>
 
-<image-player class="img--w100p" fps="3" autoplay addPlayPauseButton>
+<!-- Basic carousel -->
+<carousel-player transition="smooth">
   <img src="./img/1.svg" alt="image" />
   <img src="./img/2.svg" alt="image" />
-  <img src="./img/3.svg" alt="image" />
   <!-- more images -->
-</image-player>
+</carousel-player>
+
+<!-- Autoplay carousel (click anywhere to pause/play) -->
+<carousel-player autoplay loop duration="5000">
+  <img src="./img/1.svg" alt="image" />
+  <img src="./img/2.svg" alt="image" />
+  <!-- more images -->
+</carousel-player>
 ```
+
+**Available attributes:**
+
+- `controls`: Show prev/next navigation buttons (hidden when `autoplay` is active) (default: `false`)
+- `autoplay`: Auto-advance slides. Click anywhere on carousel to pause/play. Shows play button in center when paused (if `controls` is also present) (default: `false`)
+- `loop`: Loop back to the beginning after the last slide (default: `false`)
+- `duration`: Control autoplay speed in milliseconds (default: `3000`)
+- `transition`: Control scroll behavior - `"auto"` (instant) or `"smooth"` (smooth scrolling) (default: `"auto"`)
 
 ### Random Selection
 
@@ -196,3 +206,4 @@ You can add a `href` parameter to the query string (`?href=http://examlple.com/s
 - [2025 · Cyanotypie](https://signalwerk.github.io/talk.cyanotypie/) ([repo](https://github.com/signalwerk/talk.cyanotypie))
 - [2025 · Pixelfonts like it's 1982](https://signalwerk.github.io/workshop.pixelfont/) ([repo](https://github.com/signalwerk/workshop.pixelfont))
 - [2026 · Von Scans alter Schreibmaschinenseiten zum Font – Scheinzufall als Schriftprinzip](https://signalwerk.github.io/talk.random-typewriter-fonts/) ([repo](https://github.com/signalwerk/talk.random-typewriter-fonts))
+- [2026 · KI-Auswertung für Grossgruppen-Workshops](https://signalwerk.github.io/talk.ai-workshop-tool/) ([repo](https://github.com/signalwerk/talk.ai-workshop-tool))

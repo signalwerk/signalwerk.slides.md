@@ -1,3 +1,13 @@
+/**
+ * CarouselElement - A web component for image carousels with autoplay, controls, and loop support
+ *
+ * Attributes:
+ * - controls: Show prev/next navigation buttons (hidden during autoplay)
+ * - autoplay: Auto-advance slides with click-to-pause functionality
+ * - loop: Loop back to beginning after last slide
+ * - duration: Autoplay speed in milliseconds (default: 3000)
+ * - transition: Scroll behavior "smooth" (default) or "auto" (instant)
+ */
 class CarouselElement extends HTMLElement {
   constructor() {
     super();
@@ -5,7 +15,6 @@ class CarouselElement extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this.autoplayInterval = null;
     this.isPlaying = false;
-    this.isScrolling = false;
 
     this.shadowRoot.innerHTML = /* HTML */ `
       <style>
@@ -18,9 +27,14 @@ class CarouselElement extends HTMLElement {
         #images {
           display: flex;
           overflow-x: scroll;
-          scroll-behavior: smooth;
           width: 100%;
           scroll-snap-type: x mandatory;
+        }
+        #images.smooth {
+          scroll-behavior: smooth;
+        }
+        #images.auto {
+          scroll-behavior: auto;
         }
         ::slotted(img) {
           all: unset;
@@ -30,7 +44,7 @@ class CarouselElement extends HTMLElement {
           flex-shrink: 0;
           object-fit: cover; /* Ensure images cover the container properly */
         }
-        .button {
+        button {
           background: rgba(0, 0, 0, 0.5);
           border: none;
           color: white;
@@ -53,133 +67,148 @@ class CarouselElement extends HTMLElement {
           right: 0;
         }
         #playPause {
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
         }
-        .button:hover {
+        /* Hide play/pause button when playing (only visible when paused) */
+        #playPause.playing {
+          display: none;
+        }
+        button:hover {
           background: rgba(0, 0, 0, 0.7);
         }
-        .button:before {
+        button:before {
           content: "";
           display: inline-block;
           width: 0;
           height: 0;
           border-style: solid;
         }
+        /* Left arrow for prev button */
         #prev:before {
           border-width: 10px 10px 10px 0;
           border-color: transparent white transparent transparent;
         }
+        /* Right arrow for next button */
         #next:before {
           border-width: 10px 0 10px 10px;
           border-color: transparent transparent transparent white;
         }
-        #playPause:before {
-          border-width: 12px 0 12px 18px;
+        /* Play button (triangle) shown when paused */
+        #playPause.paused:before {
+          border-width: 12px 0 12px 20px;
           border-color: transparent transparent transparent white;
+          margin-left: 4px;
         }
-        #playPause.playing:before {
-          border-style: double;
-          border-width: 0px 0 0px 18px;
-          border-color: transparent transparent transparent white;
-        }
-        .button.hidden {
+        button.hidden {
           display: none;
         }
       </style>
-      <button class="button" id="prev" class="hidden"></button>
+      <button id="prev" class="hidden"></button>
       <div id="images">
         <slot></slot>
       </div>
-      <button class="button" id="next"></button>
-      <button id="playPause" class="hidden"></button>
+      <button id="next" class="hidden"></button>
+      <button id="playPause" class="hidden paused"></button>
     `;
 
+    // Get DOM elements
     const images = this.shadowRoot.getElementById("images");
     const prev = this.shadowRoot.getElementById("prev");
     const next = this.shadowRoot.getElementById("next");
     const playPause = this.shadowRoot.getElementById("playPause");
 
-    const hasControls = () => this.hasAttribute("controls");
-    const hasAutoplay = () => this.hasAttribute("autoplay");
-    const hasLoop = () => this.hasAttribute("loop");
-    const getDuration = () =>
-      parseInt(this.getAttribute("duration") || "3000", 10);
+    // Get attributes
+    const transition = this.getAttribute("transition") || "smooth";
+    const hasControls = this.hasAttribute("controls");
+    const hasAutoplay = this.hasAttribute("autoplay");
+    const hasLoop = this.hasAttribute("loop");
+    const duration = parseInt(this.getAttribute("duration") || "3000", 10);
 
+    // Apply transition behavior
+    images.classList.add(transition);
+
+    /**
+     * Update visibility of prev/next buttons based on scroll position
+     * Buttons are hidden if controls are disabled or autoplay is active
+     */
     const updateButtons = () => {
-      const maxScrollLeft = images.scrollWidth - images.clientWidth;
-      const isAtStart = images.scrollLeft === 0;
-      const isAtEnd = images.scrollLeft >= maxScrollLeft - 1;
-
-      if (hasControls()) {
-        prev.classList.toggle("hidden", isAtStart && !hasLoop());
-        next.classList.toggle("hidden", isAtEnd && !hasLoop());
-      } else {
+      if (!hasControls || hasAutoplay) {
         prev.classList.add("hidden");
         next.classList.add("hidden");
+        return;
       }
-
-      // Show play/pause button only if both autoplay and controls are present
-      if (hasAutoplay() && hasControls()) {
-        playPause.classList.remove("hidden");
-      } else {
-        playPause.classList.add("hidden");
-      }
-    };
-
-    const goToNext = () => {
-      if (this.isScrolling) return;
-
-      const maxScrollLeft = images.scrollWidth - images.clientWidth;
-      const isAtEnd = images.scrollLeft >= maxScrollLeft - 1;
-
-      if (!isAtEnd) {
-        this.isScrolling = true;
-        images.scrollLeft += images.clientWidth;
-      } else if (hasLoop()) {
-        // Only set scrolling flag if we're actually changing position
-        if (images.scrollLeft !== 0) {
-          this.isScrolling = true;
-          images.scrollLeft = 0;
-        }
-      } else {
-        // At end without loop - stop autoplay
-        stopAutoplay();
-      }
-      updateButtons();
-    };
-
-    const goToPrev = () => {
-      if (this.isScrolling) return;
 
       const maxScrollLeft = images.scrollWidth - images.clientWidth;
       const isAtStart = images.scrollLeft === 0;
+      const isAtEnd = images.scrollLeft >= maxScrollLeft - 1;
 
-      if (isAtStart && hasLoop()) {
-        if (images.scrollLeft !== maxScrollLeft) {
-          this.isScrolling = true;
-          images.scrollLeft = maxScrollLeft;
-        }
-      } else if (!isAtStart) {
-        this.isScrolling = true;
-        images.scrollLeft -= images.clientWidth;
-      }
+      // Hide prev at start and next at end, unless loop is enabled
+      prev.classList.toggle("hidden", isAtStart && !hasLoop);
+      next.classList.toggle("hidden", isAtEnd && !hasLoop);
+    };
+
+    /** Get current slide index based on scroll position */
+    const getCurrentIndex = () => {
+      const scrollPos = images.scrollLeft;
+      const imageWidth = images.clientWidth;
+      return Math.round(scrollPos / imageWidth);
+    };
+
+    /** Get total number of images in the carousel */
+    const getImageCount = () => {
+      return this.shadowRoot.querySelector("slot").assignedElements().length;
+    };
+
+    /** Scroll to a specific slide index */
+    const scrollToIndex = (index) => {
+      images.scrollLeft = index * images.clientWidth;
       updateButtons();
     };
 
-    const startAutoplay = () => {
-      if (this.autoplayInterval) {
-        clearInterval(this.autoplayInterval);
+    /** Navigate to the next slide, loop to start if enabled, or stop autoplay at end */
+    const goToNext = () => {
+      const currentIndex = getCurrentIndex();
+      const imageCount = getImageCount();
+
+      if (currentIndex < imageCount - 1) {
+        scrollToIndex(currentIndex + 1);
+      } else if (hasLoop) {
+        scrollToIndex(0);
+      } else {
+        stopAutoplay();
       }
-      this.isPlaying = true;
-      playPause.classList.add("playing");
-      this.autoplayInterval = setInterval(() => {
-        goToNext();
-      }, getDuration());
     };
 
+    /** Navigate to the previous slide, loop to end if enabled */
+    const goToPrev = () => {
+      const currentIndex = getCurrentIndex();
+      const imageCount = getImageCount();
+
+      if (currentIndex > 0) {
+        scrollToIndex(currentIndex - 1);
+      } else if (hasLoop) {
+        scrollToIndex(imageCount - 1);
+      }
+    };
+
+    /** Start autoplay interval */
+    const startAutoplay = () => {
+      if (this.autoplayInterval) return;
+
+      this.isPlaying = true;
+      playPause.classList.remove("paused");
+      playPause.classList.add("playing");
+
+      this.autoplayInterval = setInterval(() => {
+        goToNext();
+      }, duration);
+    };
+
+    /** Stop autoplay interval and show play button */
     const stopAutoplay = () => {
       if (this.autoplayInterval) {
         clearInterval(this.autoplayInterval);
@@ -187,8 +216,10 @@ class CarouselElement extends HTMLElement {
       }
       this.isPlaying = false;
       playPause.classList.remove("playing");
+      playPause.classList.add("paused");
     };
 
+    /** Toggle between play and pause states */
     const togglePlayPause = () => {
       if (this.isPlaying) {
         stopAutoplay();
@@ -197,77 +228,64 @@ class CarouselElement extends HTMLElement {
       }
     };
 
+    /** Update button visibility when images load */
+    const handleImageLoad = () => {
+      updateButtons();
+    };
+
+    // Listen for slotted content changes and image loads
     const slot = this.shadowRoot.querySelector("slot");
     slot.addEventListener("slotchange", () => {
       const slottedElements = slot.assignedElements();
-      let imagesToLoad = 0;
-      let imagesLoaded = 0;
-
       slottedElements.forEach((img) => {
         if (img.tagName === "IMG") {
-          imagesToLoad++;
-
-          if (img.complete) {
-            imagesLoaded++;
-          } else {
-            img.addEventListener("load", () => {
-              imagesLoaded++;
-              updateButtons();
-
-              // Start autoplay once all images are loaded
-              if (
-                imagesLoaded === imagesToLoad &&
-                hasAutoplay() &&
-                !this.isPlaying
-              ) {
-                startAutoplay();
-              }
-            });
-          }
+          img.addEventListener("load", handleImageLoad);
         }
       });
-
       updateButtons();
-
-      // If all images are already loaded (cached), start autoplay now
-      if (
-        imagesToLoad > 0 &&
-        imagesLoaded === imagesToLoad &&
-        hasAutoplay() &&
-        !this.isPlaying
-      ) {
-        startAutoplay();
-      }
     });
 
+    // Button event listeners
     prev.addEventListener("click", () => {
-      stopAutoplay();
       goToPrev();
     });
 
     next.addEventListener("click", () => {
-      stopAutoplay();
       goToNext();
     });
 
-    playPause.addEventListener("click", togglePlayPause);
-
-    let scrollTimeout;
-    images.addEventListener("scroll", () => {
-      updateButtons();
-
-      // Reset scrolling flag after scroll completes
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        this.isScrolling = false;
-      }, 100);
+    playPause.addEventListener("click", () => {
+      togglePlayPause();
     });
 
-    // Initialize buttons (autoplay will start after images load)
+    // Click anywhere on carousel to pause/play when autoplay is enabled
+    if (hasAutoplay) {
+      images.addEventListener("click", (e) => {
+        if (e.target !== prev && e.target !== next) {
+          togglePlayPause();
+        }
+      });
+    }
+
+    // Update button visibility on scroll
+    images.addEventListener("scroll", updateButtons);
+
+    // Initialize: show play/pause button if both autoplay and controls are present
+    if (hasAutoplay && hasControls) {
+      playPause.classList.remove("hidden");
+    }
+
+    // Initialize: start autoplay if attribute is present
+    if (hasAutoplay) {
+      startAutoplay();
+    }
+
+    // Initialize: set initial button states
     updateButtons();
   }
 
   disconnectedCallback() {
+    // Clean up interval when element is removed
     if (this.autoplayInterval) {
       clearInterval(this.autoplayInterval);
     }

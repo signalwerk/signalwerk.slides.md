@@ -1,3 +1,11 @@
+:root {
+  --a-color: var(--cyan-color);
+
+  .slide--style-negative {
+    --a-color: var(--cyan-color--light);
+  }
+}
+
 a {
   text-decoration: none;
   color: var(--a-color);

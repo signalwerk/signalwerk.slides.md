@@ -34,7 +34,8 @@ table {
   --work-sans-fea-pnum: "pnum" off;
   --work-sans-fea-lnum: "lnum" on;
 
-  font-feature-settings: var(--work-sans-fea-aalt), var(--work-sans-fea-c2sc),
+  font-feature-settings:
+    var(--work-sans-fea-aalt), var(--work-sans-fea-c2sc),
     var(--work-sans-fea-calt), var(--work-sans-fea-case),
     var(--work-sans-fea-dlig), var(--work-sans-fea-dnom),
     var(--work-sans-fea-frac), var(--work-sans-fea-hist),

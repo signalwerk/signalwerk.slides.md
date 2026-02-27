@@ -21,7 +21,7 @@ function useAsyncFn(fn, deps = [], initialState = { loading: false }) {
     const callId = ++lastCallId.current;
     if (!state.loading) {
       set((prevState) =>
-        Object.assign(Object.assign({}, prevState), { loading: true })
+        Object.assign(Object.assign({}, prevState), { loading: true }),
       );
     }
     return fn(...args).then(
@@ -36,7 +36,7 @@ function useAsyncFn(fn, deps = [], initialState = { loading: false }) {
           callId === lastCallId.current &&
           set({ error, loading: false });
         return error;
-      }
+      },
     );
   }, deps);
   return [state, callback];

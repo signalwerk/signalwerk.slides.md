@@ -8,7 +8,7 @@ export function replaceVars(str) {
   result = result
     .replace(/\{\{me\}\}/g, "Stefan Huber")
     .replace(/\{\{date process\.file\.mtime\}\}/g, () =>
-      printYYYYMMDD(new Date())
+      printYYYYMMDD(new Date()),
     );
 
   try {
@@ -18,7 +18,7 @@ export function replaceVars(str) {
     if (fmHeader) {
       result = result.replace(
         /\{\{process\.content\.frontmatter\.title\}\}/g,
-        fmHeader
+        fmHeader,
       );
     }
   } catch (e) {

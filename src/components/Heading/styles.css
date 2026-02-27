@@ -1,20 +1,30 @@
+:root {
+  --h1-color: var(--blue-color--dark);
+  --h2-color: var(--blue-color--dark);
+
+  .slide--style-negative {
+    --h1-color: white;
+    --h2-color: white;
+  }
+}
+
 h1,
 h2,
-h3 {
-  font-weight: 900;
-  letter-spacing: 0.03em;
+h3,
+h4 {
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: 0.45em;
   line-height: 1.1;
 }
 
 h1 {
-  font-size: 1.7rem;
+  font-size: 2rem;
   color: var(--h1-color);
 }
 
 h2 {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   color: var(--h2-color);
 }
 
@@ -25,13 +35,11 @@ h3 {
 h1 em,
 h2 em,
 h3 em {
-  color: var(--emphasis-color);
   font-weight: inherit;
 }
 
 h1 strong,
 h2 strong,
 h3 strong {
-  color: var(--green-color);
   font-weight: inherit;
 }

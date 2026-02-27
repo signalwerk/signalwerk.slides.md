@@ -24,7 +24,7 @@ class StandaloneComponent extends HTMLElement {
     this.append(mountPoint);
 
     const hrefOverwrite = new URLSearchParams(window.location.search).get(
-      "href"
+      "href",
     );
 
     const href = hrefOverwrite || this.getAttribute("href") || "slides.md";

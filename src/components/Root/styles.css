@@ -11,18 +11,11 @@
   --red-color: #f00; /* c: 0 m: 100 y: 100 k: 0 */
 
   --yellow-color: #ff0;
+  --yellow-color--dark: #b3b300;
 
   --letter-spacing--positive: 0;
   --letter-spacing--negative: 0.015em;
 
-  /* theme colors */
-  --emphasis-color: var(--cyan-color);
-  --strong-color: var(--yellow-color);
-
-  --a-color: var(--cyan-color);
-
-  --h1-color: var(--blue-color--dark);
-  --h2-color: var(--green-color--dark);
   --code-color-background: rgba(0, 0, 0, 0.2);
 
   /* font feature settings */
@@ -60,9 +53,8 @@
 }
 
 :root {
-  font-family: "Work Sans", "Noto Emoji", sans-serif;
-
-  font-feature-settings: var(--work-sans-fea-aalt), var(--work-sans-fea-c2sc),
+  font-feature-settings:
+    var(--work-sans-fea-aalt), var(--work-sans-fea-c2sc),
     var(--work-sans-fea-calt), var(--work-sans-fea-case),
     var(--work-sans-fea-dlig), var(--work-sans-fea-dnom),
     var(--work-sans-fea-frac), var(--work-sans-fea-hist),
@@ -79,15 +71,18 @@
     var(--work-sans-fea-zero), var(--work-sans-fea-cpsp),
     var(--work-sans-fea-kern);
 
-  --font-size: 32;
+  --root--font-family: "Work Sans", "Noto Emoji", sans-serif;
+  --root--font-size: 28;
   --slide-width: 960;
   --slide-height: 700;
-
-  font-size: min(
-    calc(100vh / (var(--slide-height) / var(--font-size))),
-    calc(100vw / (var(--slide-width) / var(--font-size)))
+  --font-size: min(
+    calc(100vh / (var(--slide-height) / var(--root--font-size))),
+    calc(100vw / (var(--slide-width) / var(--root--font-size)))
   );
-  line-height: 1.5;
+
+  font-family: var(--root--font-family);
+  font-size: var(--font-size);
+  line-height: 1.4;
 }
 
 ::selection {

@@ -238,7 +238,7 @@ background:
 
 <random-selection data-set="oblique-strategies"></random-selection>
 
-<div style="position: absolute; top: .3em; right: 0;">
+<div style="position: absolute; top: 0; right: 0;">
 <timer-countdown time="00:01:00"></timer-countdown>
 </div>
 

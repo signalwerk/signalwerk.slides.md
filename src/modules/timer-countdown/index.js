@@ -12,22 +12,23 @@ const template = /* HTML */ `
 
       --work-sans-fea-tnum: "tnum" on;
 
-      font-feature-settings: var(--work-sans-fea-aalt),
-        var(--work-sans-fea-c2sc), var(--work-sans-fea-calt),
-        var(--work-sans-fea-case), var(--work-sans-fea-dlig),
-        var(--work-sans-fea-dnom), var(--work-sans-fea-frac),
-        var(--work-sans-fea-hist), var(--work-sans-fea-liga),
-        var(--work-sans-fea-lnum), var(--work-sans-fea-locl),
-        var(--work-sans-fea-nalt), var(--work-sans-fea-numr),
-        var(--work-sans-fea-onum), var(--work-sans-fea-ordn),
-        var(--work-sans-fea-ornm), var(--work-sans-fea-pnum),
-        var(--work-sans-fea-rvrn), var(--work-sans-fea-salt),
-        var(--work-sans-fea-sinf), var(--work-sans-fea-smcp),
-        var(--work-sans-fea-ss02), var(--work-sans-fea-ss03),
-        var(--work-sans-fea-ss04), var(--work-sans-fea-ss05),
-        var(--work-sans-fea-subs), var(--work-sans-fea-sups),
-        var(--work-sans-fea-tnum), var(--work-sans-fea-zero),
-        var(--work-sans-fea-cpsp), var(--work-sans-fea-kern);
+      font-feature-settings:
+        var(--work-sans-fea-aalt), var(--work-sans-fea-c2sc),
+        var(--work-sans-fea-calt), var(--work-sans-fea-case),
+        var(--work-sans-fea-dlig), var(--work-sans-fea-dnom),
+        var(--work-sans-fea-frac), var(--work-sans-fea-hist),
+        var(--work-sans-fea-liga), var(--work-sans-fea-lnum),
+        var(--work-sans-fea-locl), var(--work-sans-fea-nalt),
+        var(--work-sans-fea-numr), var(--work-sans-fea-onum),
+        var(--work-sans-fea-ordn), var(--work-sans-fea-ornm),
+        var(--work-sans-fea-pnum), var(--work-sans-fea-rvrn),
+        var(--work-sans-fea-salt), var(--work-sans-fea-sinf),
+        var(--work-sans-fea-smcp), var(--work-sans-fea-ss02),
+        var(--work-sans-fea-ss03), var(--work-sans-fea-ss04),
+        var(--work-sans-fea-ss05), var(--work-sans-fea-subs),
+        var(--work-sans-fea-sups), var(--work-sans-fea-tnum),
+        var(--work-sans-fea-zero), var(--work-sans-fea-cpsp),
+        var(--work-sans-fea-kern);
     }
 
     #display {
@@ -161,7 +162,7 @@ class TimerCountdown extends HTMLElement {
   }
 
   parseTime(timeString) {
-    // Parse time in format HH:MM:SS or MM:SS
+    // Parse time in format HH:MM:SS, MM:SS, or just seconds
     const parts = timeString.split(":").map((part) => parseInt(part, 10));
 
     if (parts.length === 3) {
@@ -170,8 +171,11 @@ class TimerCountdown extends HTMLElement {
     } else if (parts.length === 2) {
       // MM:SS
       this.initialTime = parts[0] * 60 + parts[1];
+    } else if (parts.length === 1) {
+      // Just seconds
+      this.initialTime = parts[0];
     } else {
-      console.error("Invalid time format. Use HH:MM:SS or MM:SS");
+      console.error("Invalid time format. Use HH:MM:SS, MM:SS, or seconds");
       this.initialTime = 0;
     }
 
@@ -287,8 +291,8 @@ class TimerCountdown extends HTMLElement {
   }
 
   isValidTimeFormat(timeString) {
-    // Check if time format is valid (HH:MM:SS or MM:SS)
-    const timeRegex = /^(\d{1,2}:)?\d{1,2}:\d{2}$/;
+    // Check if time format is valid (HH:MM:SS, MM:SS, or just seconds)
+    const timeRegex = /^((\d{1,2}:)?\d{1,2}:\d{2}|\d+)$/;
     return timeRegex.test(timeString);
   }
 
@@ -400,8 +404,8 @@ class TimerCountdown extends HTMLElement {
       state: this.isRunning
         ? "start"
         : this.remainingTime <= 0
-        ? "stop"
-        : "pause",
+          ? "stop"
+          : "pause",
       start: this.startTimestamp,
       hasBeenStarted: this.hasBeenStarted,
       pausedRemainingTime: this.pausedRemainingTime,

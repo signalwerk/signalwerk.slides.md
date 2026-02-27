@@ -1,3 +1,13 @@
+:root {
+  --strong-color: var(--yellow-color--dark);
+  --emphasis-color: var(--cyan-color);
+
+  .slide--style-negative {
+    --strong-color: var(--cyan-color--light);
+    --emphasis-color: var(--yellow-color);
+  }
+}
+
 em {
   font-style: normal;
   color: var(--emphasis-color);
@@ -8,5 +18,5 @@ strong {
   font-style: normal;
   font-weight: inherit;
   font-weight: 700;
-  color: var(--green-color);
+  color: var(--strong-color);
 }

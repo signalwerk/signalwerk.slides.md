@@ -35,7 +35,6 @@
     <!-- logic -->
     <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1c8459a/index.js"></script>
     <!-- modules -->
-    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1c8459a/modules/carousel-player/index.js"></script>
   </body>
 </html>
 ```

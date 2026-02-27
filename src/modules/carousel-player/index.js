@@ -2,11 +2,11 @@
  * CarouselElement - A web component for image carousels with autoplay, controls, and loop support
  *
  * Attributes:
- * - controls: Show prev/next navigation buttons (hidden during autoplay)
- * - autoplay: Auto-advance slides with click-to-pause functionality
- * - loop: Loop back to beginning after last slide
- * - duration: Autoplay speed in milliseconds (default: 3000)
- * - transition: Scroll behavior "smooth" (default) or "auto" (instant)
+ * - controls: Show prev/next navigation buttons (hidden when autoplay is active) (default: false)
+ * - autoplay: Auto-advance slides. Click anywhere on carousel to pause/play. Shows play button in center when paused (if controls is also present) (default: false)
+ * - loop: Loop back to the beginning after the last slide (default: false)
+ * - duration: Control autoplay speed in milliseconds (default: 3000)
+ * - transition: Control scroll behavior - "auto" (instant) or "smooth" (smooth scrolling) (default: "auto")
  */
 class CarouselElement extends HTMLElement {
   constructor() {
@@ -122,7 +122,7 @@ class CarouselElement extends HTMLElement {
     const playPause = this.shadowRoot.getElementById("playPause");
 
     // Get attributes
-    const transition = this.getAttribute("transition") || "smooth";
+    const transition = this.getAttribute("transition") || "auto";
     const hasControls = this.hasAttribute("controls");
     const hasAutoplay = this.hasAttribute("autoplay");
     const hasLoop = this.hasAttribute("loop");

@@ -58,7 +58,7 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ### Carousel Player
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1c8459a/modules/carousel-player/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/f18fc87/modules/carousel-player/index.js"></script>
 
 <carousel-player>
   <img src="./img/1.svg" alt="image" />
@@ -71,7 +71,7 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ### Timer (count down)
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1c8459a/modules/timer-countdown/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/f18fc87/modules/timer-countdown/index.js"></script>
 
 <timer-countdown time="00:01:00"></timer-countdown>
 
@@ -85,10 +85,10 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ```html
 <link
   rel="stylesheet"
-  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1c8459a/modules/speaker-video/styles.css"
+  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/f18fc87/modules/speaker-video/styles.css"
   media="all"
 />
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1c8459a/modules/speaker-video/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/f18fc87/modules/speaker-video/index.js"></script>
 
 <speaker-video></speaker-video>
 ```
@@ -96,7 +96,7 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ### Carousel Player
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1c8459a/modules/carousel-player/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/f18fc87/modules/carousel-player/index.js"></script>
 
 <!-- Basic carousel -->
 <carousel-player transition="smooth">
@@ -124,7 +124,7 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ### Random Selection
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1c8459a/modules/random-selection/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/f18fc87/modules/random-selection/index.js"></script>
 
 <!-- Using predefined datasets -->
 <random-selection data-set="oblique-strategies"></random-selection>
@@ -144,7 +144,7 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 ### QR Code
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1c8459a/modules/qr-code/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/f18fc87/modules/qr-code/index.js"></script>
 
 <qr-code data="https://signalwerk.ch"></qr-code>
 

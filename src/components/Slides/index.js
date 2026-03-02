@@ -103,21 +103,25 @@ function Component({ md }) {
     setIsPresenterWindow((val) => !val);
   });
 
-  useKeypress(["ArrowRight", "PageDown"], () => {
+  const goNext = useCallback(() => {
     channel.postMessage({
       type: "navigation",
       direction: "next",
     });
     setSelect((parsed) => clamp(parsed + 1, 0, count));
-  });
+  }, [channel, count]);
 
-  useKeypress(["ArrowLeft", "PageUp"], () => {
+  const goPrevious = useCallback(() => {
     channel.postMessage({
       type: "navigation",
       direction: "previous",
     });
     setSelect((parsed) => clamp(parsed - 1, 0, count));
-  });
+  }, [channel, count]);
+
+  useKeypress(["ArrowRight", "PageDown"], goNext);
+
+  useKeypress(["ArrowLeft", "PageUp"], goPrevious);
 
   const current = clamp(select, 0, count);
 
@@ -140,6 +144,24 @@ function Component({ md }) {
       ) : (
         <Slide data={slides[current]} />
       )}
+      <div className="Slides__touch-nav noPrint">
+        <button
+          className="Slides__touch-nav-btn Slides__touch-nav-btn--prev"
+          onClick={goPrevious}
+          aria-label="Previous slide"
+          disabled={current === 0}
+        >
+          ←
+        </button>
+        <button
+          className="Slides__touch-nav-btn Slides__touch-nav-btn--next"
+          onClick={goNext}
+          aria-label="Next slide"
+          disabled={current === count}
+        >
+          →
+        </button>
+      </div>
     </div>
   );
 }

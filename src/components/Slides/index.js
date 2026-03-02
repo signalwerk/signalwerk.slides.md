@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import fm from "front-matter";
 import Slide from "../Slide/index.js";
 import { replaceVars } from "./replaceVars.js";
 import { get } from "lodash";
 import useHash from "../../hooks/useHash.js";
-import useKeypress from "../../hooks/useKeyPress.js";
+import { useCommandPalette } from "../CommandPalette/index.js";
 
 function extractFrontMatter(str) {
   let attributes = {};
@@ -82,6 +82,12 @@ function Component({ md }) {
   const slides = md2slides(md);
   const count = Math.max(0, slides.length - 1);
 
+  // Keep a ref to count so registered commands always use the latest value
+  const countRef = useRef(count);
+  useEffect(() => {
+    countRef.current = count;
+  }, [count]);
+
   useEffect(() => {
     const parsed = getIndexFromHash(hash);
 
@@ -99,25 +105,37 @@ function Component({ md }) {
     });
   }, [select]);
 
-  useKeypress(["p"], () => {
-    setIsPresenterWindow((val) => !val);
-  });
+  const { registerCommand } = useCommandPalette();
 
-  useKeypress(["ArrowRight", "PageDown"], () => {
-    channel.postMessage({
-      type: "navigation",
-      direction: "next",
+  useEffect(() => {
+    return registerCommand({
+      label: "Toggle Presenter View",
+      shortcut: "p",
+      action: () => setIsPresenterWindow((val) => !val),
     });
-    setSelect((parsed) => clamp(parsed + 1, 0, count));
-  });
+  }, [registerCommand]);
 
-  useKeypress(["ArrowLeft", "PageUp"], () => {
-    channel.postMessage({
-      type: "navigation",
-      direction: "previous",
+  useEffect(() => {
+    return registerCommand({
+      label: "Next Slide",
+      shortcut: ["ArrowRight", "PageDown"],
+      action: () => {
+        channel.postMessage({ type: "navigation", direction: "next" });
+        setSelect((parsed) => clamp(parsed + 1, 0, countRef.current));
+      },
     });
-    setSelect((parsed) => clamp(parsed - 1, 0, count));
-  });
+  }, [registerCommand]);
+
+  useEffect(() => {
+    return registerCommand({
+      label: "Previous Slide",
+      shortcut: ["ArrowLeft", "PageUp"],
+      action: () => {
+        channel.postMessage({ type: "navigation", direction: "previous" });
+        setSelect((parsed) => clamp(parsed - 1, 0, countRef.current));
+      },
+    });
+  }, [registerCommand]);
 
   const current = clamp(select, 0, count);
 

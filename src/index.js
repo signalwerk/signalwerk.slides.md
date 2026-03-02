@@ -4,6 +4,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import useFetch from "./hooks/useFetch.js";
 import Slides from "./components/Slides/index.js";
+import { CommandPaletteProvider } from "./components/CommandPalette/index.js";
 
 function App({ url }) {
   const { response, loading, error } = useFetch(url);
@@ -11,9 +12,11 @@ function App({ url }) {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div className="App">
-      <Slides md={response}></Slides>
-    </div>
+    <CommandPaletteProvider>
+      <div className="App">
+        <Slides md={response}></Slides>
+      </div>
+    </CommandPaletteProvider>
   );
 }
 

@@ -11,22 +11,47 @@ const CommandPaletteContext = createContext(null);
 
 let nextCommandId = 0;
 
+function formatKey(k) {
+  if (k === "ArrowRight") return "→";
+  if (k === "ArrowLeft") return "←";
+  if (k === "ArrowUp") return "↑";
+  if (k === "ArrowDown") return "↓";
+  if (k === "PageDown") return "PgDn";
+  if (k === "PageUp") return "PgUp";
+  if (k === "Escape") return "Esc";
+  if (k === "Enter") return "↵";
+  return k.length === 1 ? k.toUpperCase() : k;
+}
+
 function formatShortcut(shortcut) {
   if (!shortcut) return null;
+  // Object form: { key, ctrl, meta, shift, alt }
+  if (typeof shortcut === "object" && !Array.isArray(shortcut)) {
+    const parts = [];
+    if (shortcut.ctrl) parts.push("Ctrl");
+    if (shortcut.meta) parts.push("Meta");
+    if (shortcut.shift) parts.push("Shift");
+    if (shortcut.alt) parts.push("Alt");
+    parts.push(formatKey(shortcut.key));
+    return parts.join("+");
+  }
   const keys = Array.isArray(shortcut) ? shortcut : [shortcut];
-  return keys
-    .map((k) => {
-      if (k === "ArrowRight") return "→";
-      if (k === "ArrowLeft") return "←";
-      if (k === "ArrowUp") return "↑";
-      if (k === "ArrowDown") return "↓";
-      if (k === "PageDown") return "PgDn";
-      if (k === "PageUp") return "PgUp";
-      if (k === "Escape") return "Esc";
-      if (k === "Enter") return "↵";
-      return k.length === 1 ? k.toUpperCase() : k;
-    })
-    .join(" / ");
+  return keys.map(formatKey).join(" / ");
+}
+
+function matchesShortcut(shortcut, e) {
+  // Object form: { key, ctrl, meta, shift, alt }
+  if (typeof shortcut === "object" && !Array.isArray(shortcut)) {
+    return (
+      shortcut.key === e.key &&
+      !!shortcut.ctrl === e.ctrlKey &&
+      !!shortcut.meta === e.metaKey &&
+      !!shortcut.shift === e.shiftKey &&
+      !!shortcut.alt === e.altKey
+    );
+  }
+  const keys = Array.isArray(shortcut) ? shortcut : [shortcut];
+  return keys.includes(e.key);
 }
 
 function CommandPaletteUI({ commands, onClose }) {
@@ -127,6 +152,14 @@ export function CommandPaletteProvider({ children }) {
     return () => setCommands((prev) => prev.filter((c) => c.id !== id));
   }, []);
 
+  // Expose a global API for vanilla (non-React) components to register commands
+  useEffect(() => {
+    window.commandPalette = { register: registerCommand };
+    return () => {
+      window.commandPalette = null;
+    };
+  }, [registerCommand]);
+
   // Single central keyboard listener for all shortcuts
   useEffect(() => {
     function onKeyup(e) {
@@ -140,8 +173,7 @@ export function CommandPaletteProvider({ children }) {
       // Dispatch shortcut to the first matching registered command
       const cmd = commandsRef.current.find((cmd) => {
         if (!cmd.shortcut) return false;
-        const keys = Array.isArray(cmd.shortcut) ? cmd.shortcut : [cmd.shortcut];
-        return keys.includes(e.key);
+        return matchesShortcut(cmd.shortcut, e);
       });
       if (cmd) cmd.action();
     }

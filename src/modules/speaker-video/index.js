@@ -26,6 +26,7 @@ class VideoButton extends HTMLElement {
       </div>
     `;
     this.stream = null;
+    this._unregisterCommands = [];
   }
 
   connectedCallback() {
@@ -33,31 +34,33 @@ class VideoButton extends HTMLElement {
       this.startVideoStream();
     }
 
-    document.addEventListener("keydown", this.handleKeydown.bind(this));
+    if (window.commandPalette) {
+      this._unregisterCommands = [
+        window.commandPalette.register({
+          label: "Toggle Speaker Video",
+          shortcut: { key: "h", ctrl: true },
+          action: () => {
+            this.startVideoStream();
+            this.classList.toggle("show");
+          },
+        }),
+        window.commandPalette.register({
+          label: "Fullscreen Speaker Video",
+          shortcut: { key: "f", ctrl: true },
+          action: () => {
+            this.startVideoStream();
+            this.classList.toggle("big");
+            this.classList.add("show");
+          },
+        }),
+      ];
+    }
   }
 
   disconnectedCallback() {
-    document.removeEventListener("keydown", this.handleKeydown.bind(this));
+    this._unregisterCommands.forEach((unregister) => unregister?.());
+    this._unregisterCommands = [];
     this.stopVideoStream();
-  }
-
-  handleKeydown(event) {
-    if (event.ctrlKey && event.key === "h") {
-      this.startVideoStream(); // Start the video stream but never stop it (fast access to the camera)
-      this.classList.toggle("show");
-    } else if (event.ctrlKey && event.key === "f") {
-      this.startVideoStream();
-      this.classList.toggle("big");
-      this.classList.add("show");
-    }
-  }
-
-  toggleVideoStream() {
-    if (this.classList.contains("show")) {
-      this.startVideoStream();
-    } else {
-      this.stopVideoStream();
-    }
   }
 
   startVideoStream() {

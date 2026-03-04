@@ -728,6 +728,29 @@ style-negative
   width: 100%;
   height: 100%;
 }
+.Slides__touch-nav {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  gap: 0.5rem;
+  z-index: 100;
+}
+.Slides__touch-nav-btn {
+  background-color: rgba(0, 47, 91, 0.7);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+.Slides__touch-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
 /* components */
 .box {
 }
@@ -837,6 +860,13 @@ style-negative
 
   .noPrint {
     display: none;
+  }
+}
+@media (hover: none) and (pointer: coarse) {
+  .Slides__touch-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 

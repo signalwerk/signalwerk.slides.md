@@ -36,7 +36,7 @@ class VideoButton extends HTMLElement {
 
     if (window.commandPalette) {
       this._unregisterCommands = [
-        window.commandPalette.register({
+        window.commandPalette.registerCommand({
           label: "Toggle Speaker Video",
           shortcut: { key: "h", ctrl: true },
           action: () => {
@@ -44,7 +44,7 @@ class VideoButton extends HTMLElement {
             this.classList.toggle("show");
           },
         }),
-        window.commandPalette.register({
+        window.commandPalette.registerCommand({
           label: "Fullscreen Speaker Video",
           shortcut: { key: "f", ctrl: true },
           action: () => {

@@ -152,9 +152,11 @@ export function CommandPaletteProvider({ children }) {
     return () => setCommands((prev) => prev.filter((c) => c.id !== id));
   }, []);
 
-  // Expose a global API for vanilla (non-React) components to register commands
+  // Expose a global API for vanilla (non-React) components to register commands.
+  // Dispatches 'commandPalette:ready' so modules that loaded before React can register.
   useEffect(() => {
-    window.commandPalette = { register: registerCommand };
+    window.commandPalette = { registerCommand };
+    window.dispatchEvent(new CustomEvent("commandPalette:ready"));
     return () => {
       window.commandPalette = null;
     };

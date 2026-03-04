@@ -53,6 +53,10 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/update.sh)
 ```
 
+## Command palette
+
+To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux).
+
 ## Modules
 
 ### Carousel Player
@@ -92,6 +96,10 @@ bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md
 
 <speaker-video></speaker-video>
 ```
+
+### Pecha Kucha Player
+
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/41b1a85/modules/pekachuta-presentation/index.js"></script>
 
 ### Carousel Player
 

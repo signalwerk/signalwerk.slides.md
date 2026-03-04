@@ -587,6 +587,22 @@ mark {
   background: rgb(178, 112, 0);
   background: var(--brown-color);
 }
+.Slides--isPresenterWindow aside {
+  display: block;
+}
+aside {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  font-size: 0.8em;
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  color: black;
+}
 /* slide */
 /* PROPER THEMING */
 :root {

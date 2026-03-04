@@ -42,7 +42,7 @@ const template = /* HTML */ `
     }
 
     .widget {
-      background: color-mix(var(--blue-color--dark, #002f5b), transparent 10%);
+      background: color-mix(var(--blue-color--dark, #002f5b), transparent 0%);
       border-radius: calc(0.2rem * var(--pekachuta-size--local));
       padding: calc(0.2rem * var(--pekachuta-size--local));
       width: calc(1.2rem * var(--pekachuta-size--local));
@@ -129,7 +129,7 @@ const template = /* HTML */ `
       justify-content: center;
       font-size: calc(0.4rem * var(--pekachuta-size--local));
       font-weight: 700;
-      color: #fff;
+      color: rgba(255, 255, 255, 0.6);
     }
 
     :host(.paused) .time-label {
@@ -160,7 +160,7 @@ const template = /* HTML */ `
 
     .slide-counter {
       font-size: calc(0.3rem * var(--pekachuta-size--local));
-      font-weight: 600;
+      font-weight: 400;
       color: rgba(255, 255, 255, 0.6);
     }
 
@@ -212,6 +212,7 @@ class PekachutaPresentation extends HTMLElement {
     // Stable bound handlers
     this._onSlideChange = this._handleSlideChange.bind(this);
     this._onPaletteReady = this._tryRegisterCommand.bind(this);
+    this._onKeyDown = this._handleKeyDown.bind(this);
 
     // Wire up widget controls
     this.shadowRoot
@@ -226,6 +227,7 @@ class PekachutaPresentation extends HTMLElement {
     this._tryRegisterCommand();
     window.addEventListener("commandPalette:ready", this._onPaletteReady);
     window.addEventListener("slides:change", this._onSlideChange);
+    window.addEventListener("keydown", this._onKeyDown);
   }
 
   disconnectedCallback() {
@@ -233,6 +235,7 @@ class PekachutaPresentation extends HTMLElement {
     this._unregisterCommand = null;
     window.removeEventListener("commandPalette:ready", this._onPaletteReady);
     window.removeEventListener("slides:change", this._onSlideChange);
+    window.removeEventListener("keydown", this._onKeyDown);
     this._stopInterval();
   }
 
@@ -243,12 +246,11 @@ class PekachutaPresentation extends HTMLElement {
     this._isActive ? this.deactivate() : this.activate();
   }
 
-  /** Start the Pekachuta overlay and timer. */
+  /** Start the Pekachuta overlay and timer (initially paused). */
   activate() {
     this._isActive = true;
-    this._isPaused = false;
-    this.classList.add("active");
-    this.classList.remove("paused");
+    this._isPaused = true;
+    this.classList.add("active", "paused");
 
     const state = window.slidesApp?.getState() ?? { current: 0, total: 0 };
     this._current = state.current;
@@ -280,7 +282,9 @@ class PekachutaPresentation extends HTMLElement {
     this._stopInterval();
     this._timeLeft = DURATION;
     this._renderTimer();
-    this._startInterval();
+    if (!this._isPaused) {
+      this._startInterval();
+    }
   }
 
   _startInterval() {
@@ -309,6 +313,14 @@ class PekachutaPresentation extends HTMLElement {
     if (this._intervalId != null) {
       clearInterval(this._intervalId);
       this._intervalId = null;
+    }
+  }
+
+  _handleKeyDown(e) {
+    if (!this._isActive) return;
+    if (e.code === "Space" && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      e.preventDefault();
+      this._togglePause();
     }
   }
 

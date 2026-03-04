@@ -773,7 +773,7 @@ style-negative
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-bottom: .25rem;
+  padding-bottom: 0.25rem;
 }
 .Slides__touch-nav-btn:disabled {
   opacity: 0.3;
@@ -881,17 +881,17 @@ style-negative
 }
 .CommandPalette {
   background: #fff;
-  border-radius: 0.3em;
-  -webkit-box-shadow: 0 1em 3em rgba(0, 0, 0, 0.4);
-          box-shadow: 0 1em 3em rgba(0, 0, 0, 0.4);
-  width: min(600px, 90vw);
+  border-radius: 0.3rem;
+  -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+          box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+  width: 20rem;
   overflow: hidden;
   font-size: 0.6rem;
 }
 .CommandPalette__input {
   display: block;
   width: 100%;
-  padding: 0.6em 0.8em;
+  padding: 0.6em 0.7em;
   border: none;
   border-bottom: 2px solid #e6e8ea;
   border-bottom: 2px solid var(--gray-color);
@@ -909,7 +909,7 @@ style-negative
 .CommandPalette__list {
   list-style: none;
   margin: 0;
-  padding: 0.25em 0;
+  padding: 0.25rem 0;
   max-height: 40vh;
   overflow-y: auto;
 }
@@ -923,9 +923,9 @@ style-negative
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0.45em 0.8em;
+  padding: 0.2em 0.7em;
   cursor: pointer;
-  gap: 1em;
+  gap: 1rem;
 }
 .CommandPalette__item--selected {
   background: #0054a2;
@@ -940,13 +940,13 @@ style-negative
 .CommandPalette__shortcut {
   font-family: "Work Sans", "Noto Emoji", sans-serif;
   font-family: var(--root--font-family);
-  font-size: 0.8em;
+  font-size: 0.6em;
   background: #e6e8ea;
   background: var(--gray-color);
   color: #002f5b;
   color: var(--blue-color--dark);
-  padding: 0.1em 0.4em;
-  border-radius: 0.2em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.2rem;
   white-space: nowrap;
 }
 .CommandPalette__item--selected .CommandPalette__shortcut {
@@ -954,7 +954,7 @@ style-negative
   color: #fff;
 }
 .CommandPalette__empty {
-  padding: 0.6em 0.8em;
+  padding: 0.6rem 0.8rem;
   color: #a7a9ab;
   color: var(--gray-color--dark);
   font-style: italic;

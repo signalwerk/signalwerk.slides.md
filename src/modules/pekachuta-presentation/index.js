@@ -111,9 +111,7 @@ const template = /* HTML */ `
       stroke-linecap: round;
       stroke-dasharray: var(--circumference);
       stroke-dashoffset: 0;
-      transition:
-        stroke-dashoffset 0.9s linear,
-        stroke 0.4s;
+      transition: stroke-dashoffset 0.9s linear, stroke 0.4s;
     }
 
     .ring.warning {
@@ -209,6 +207,7 @@ class PekachutaPresentation extends HTMLElement {
     this._timeLeft = DURATION;
     this._intervalId = null;
     this._unregisterCommand = null;
+    this._registeredPalette = null;
     this._current = 0; // 0-indexed
     this._total = 0;
 
@@ -236,6 +235,7 @@ class PekachutaPresentation extends HTMLElement {
   disconnectedCallback() {
     this._unregisterCommand?.();
     this._unregisterCommand = null;
+    this._registeredPalette = null;
     window.removeEventListener("commandPalette:ready", this._onPaletteReady);
     window.removeEventListener("slides:change", this._onSlideChange);
     window.removeEventListener("keydown", this._onKeyDown);
@@ -273,8 +273,18 @@ class PekachutaPresentation extends HTMLElement {
   // ── Internal ────────────────────────────────────────
 
   _tryRegisterCommand() {
-    if (this._unregisterCommand || !window.commandPalette) return;
-    this._unregisterCommand = window.commandPalette.registerCommand({
+    const palette = window.commandPalette;
+    if (!palette?.registerCommand) return;
+
+    // Already registered for this palette instance.
+    if (this._registeredPalette === palette && this._unregisterCommand) return;
+
+    // Palette instance changed (provider remount). Rebind command cleanly.
+    this._unregisterCommand?.();
+    this._unregisterCommand = null;
+    this._registeredPalette = palette;
+
+    this._unregisterCommand = palette.registerCommand({
       label: "Toggle Pekachuta Presentation",
       shortcut: { key: "t", ctrl: true },
       action: () => this.toggle(),

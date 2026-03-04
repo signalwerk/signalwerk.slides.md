@@ -35,7 +35,6 @@ const template = /* HTML */ `
       );
       font-size: var(--font-size, 1rem);
       user-select: none;
-      box-sizing: border-box;
     }
 
     :host(.active) {
@@ -56,8 +55,8 @@ const template = /* HTML */ `
 
     .close-btn {
       position: absolute;
-      top: calc(0.2rem * var(--timer-size));
-      right: calc(0.2rem * var(--timer-size));
+      top: 0;
+      right: 0;
       background: none;
       border: none;
       color: rgba(255, 255, 255, 0.3);
@@ -66,6 +65,11 @@ const template = /* HTML */ `
       line-height: 1;
       padding: 0 calc(0.1rem * var(--timer-size));
       border-radius: calc(0.1rem * var(--timer-size));
+      width: calc(0.65rem * var(--timer-size));
+      height: calc(0.65rem * var(--timer-size));
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .close-btn:hover {
@@ -77,9 +81,10 @@ const template = /* HTML */ `
 
     .timer-wrap {
       position: relative;
-      min-width: 100%;
+      width: 100%;
       aspect-ratio: 1 / 1;
       cursor: pointer;
+      overflow: hidden;
     }
 
     .timer-wrap:hover .pause-hint {
@@ -88,7 +93,7 @@ const template = /* HTML */ `
 
     .timer-svg {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 1 / 1;
       transform: rotate(-90deg);
     }
 

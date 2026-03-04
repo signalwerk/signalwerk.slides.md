@@ -81,12 +81,25 @@ function Component({ md }) {
 
   const slides = md2slides(md);
   const count = Math.max(0, slides.length - 1);
+  const total = slides.length;
 
   // Keep a ref to count so registered commands always use the latest value
   const countRef = useRef(count);
   useEffect(() => {
     countRef.current = count;
   }, [count]);
+
+  // Keep totalRef in sync so global APIs always return the current total
+  const totalRef = useRef(total);
+  useEffect(() => {
+    totalRef.current = total;
+  }, [total]);
+
+  // Keep a ref to select for synchronous reads in slidesApp.getState()
+  const selectRef = useRef(select);
+  useEffect(() => {
+    selectRef.current = select;
+  }, [select]);
 
   useEffect(() => {
     const parsed = getIndexFromHash(hash);
@@ -106,6 +119,46 @@ function Component({ md }) {
   }, [select]);
 
   const { registerCommand } = useCommandPalette();
+
+  // Expose a global API so vanilla modules can read state and send navigation
+  useEffect(() => {
+    window.slidesApp = {
+      getState: () => ({
+        current: selectRef.current,
+        total: totalRef.current,
+      }),
+    };
+    return () => {
+      window.slidesApp = null;
+    };
+  }, []);
+
+  // Dispatch 'slides:change' CustomEvent so modules can track slide changes
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent("slides:change", {
+        detail: { current: select, total: totalRef.current },
+      }),
+    );
+  }, [select]);
+
+  // Listen to 'slides:navigate' CustomEvent dispatched by modules
+  useEffect(() => {
+    function onNavigate(e) {
+      const { direction, index } = e.detail;
+      if (direction === "next") {
+        channel.postMessage({ type: "navigation", direction: "next" });
+        setSelect((s) => clamp(s + 1, 0, countRef.current));
+      } else if (direction === "prev") {
+        channel.postMessage({ type: "navigation", direction: "previous" });
+        setSelect((s) => clamp(s - 1, 0, countRef.current));
+      } else if (direction === "to" && typeof index === "number") {
+        setSelect(clamp(index, 0, countRef.current));
+      }
+    }
+    window.addEventListener("slides:navigate", onNavigate);
+    return () => window.removeEventListener("slides:navigate", onNavigate);
+  }, [channel]);
 
   useEffect(() => {
     return registerCommand({

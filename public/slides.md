@@ -217,6 +217,8 @@ background:
 </html>
 ```
 
+Including `fea` support for OpenType feature code.
+
 --s--
 
 ## Presenter notes

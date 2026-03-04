@@ -9,12 +9,13 @@ import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 
 import rehypeExternalLinks from "rehype-external-links";
 import { remarkGfm } from "./gfm.js";
+import { fea } from "./hljs-fea.js";
 
 const processor = unified()
   .use(remarkParse)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
-  .use(rehypeHighlight, { subset: false })
+  .use(rehypeHighlight, { subset: false, languages: { fea } })
 
   // .use(rehypeSanitize, {
   //   ...defaultSchema,

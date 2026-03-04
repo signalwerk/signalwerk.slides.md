@@ -95,6 +95,7 @@ const template = /* HTML */ `
       width: 100%;
       aspect-ratio: 1 / 1;
       transform: rotate(-90deg);
+      display: block;
     }
 
     .track {

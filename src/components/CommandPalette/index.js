@@ -74,10 +74,10 @@ function CommandPaletteUI({ commands, onClose }) {
   function handleKeyDown(e) {
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      setSelected((s) => Math.min(s + 1, filtered.length - 1));
+      setSelected((s) => (s + 1) % filtered.length);
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setSelected((s) => Math.max(s - 1, 0));
+      setSelected((s) => (s - 1 + filtered.length) % filtered.length);
     } else if (e.key === "Enter") {
       e.preventDefault();
       if (filtered[selected]) {

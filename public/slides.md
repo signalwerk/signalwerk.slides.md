@@ -219,6 +219,20 @@ background:
 
 --s--
 
+## Presenter notes
+
+```html
+<aside>This is a presenter note</aside>
+```
+
+<aside>
+
+- This is a presenter note
+
+</aside>
+
+--s--
+
 ## Print
 
 - Add [`?print`](./?print) to the URL to get a printable version

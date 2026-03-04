@@ -21,8 +21,8 @@ class VideoButton extends HTMLElement {
       </style>
       <video autoplay></video>
       <div part="tooltip" class="tooltip">
-        Ctrl + H: Toggle video stream<br />
-        Ctrl + F: Fullscreen video
+        H: Toggle video stream<br />
+        F: Fullscreen video
       </div>
     `;
     this.stream = null;
@@ -33,23 +33,31 @@ class VideoButton extends HTMLElement {
       this.startVideoStream();
     }
 
-    document.addEventListener("keydown", this.handleKeydown.bind(this));
+    if (window.__commandPalette) {
+      this._unregisterToggle = window.__commandPalette.registerCommand({
+        label: "Toggle video stream",
+        shortcut: "h",
+        action: () => {
+          this.startVideoStream();
+          this.classList.toggle("show");
+        },
+      });
+      this._unregisterFullscreen = window.__commandPalette.registerCommand({
+        label: "Fullscreen video",
+        shortcut: "f",
+        action: () => {
+          this.startVideoStream();
+          this.classList.toggle("big");
+          this.classList.add("show");
+        },
+      });
+    }
   }
 
   disconnectedCallback() {
-    document.removeEventListener("keydown", this.handleKeydown.bind(this));
+    if (this._unregisterToggle) this._unregisterToggle();
+    if (this._unregisterFullscreen) this._unregisterFullscreen();
     this.stopVideoStream();
-  }
-
-  handleKeydown(event) {
-    if (event.ctrlKey && event.key === "h") {
-      this.startVideoStream(); // Start the video stream but never stop it (fast access to the camera)
-      this.classList.toggle("show");
-    } else if (event.ctrlKey && event.key === "f") {
-      this.startVideoStream();
-      this.classList.toggle("big");
-      this.classList.add("show");
-    }
   }
 
   toggleVideoStream() {

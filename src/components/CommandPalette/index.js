@@ -127,6 +127,14 @@ export function CommandPaletteProvider({ children }) {
     return () => setCommands((prev) => prev.filter((c) => c.id !== id));
   }, []);
 
+  // Expose registerCommand globally so non-React code (e.g. web components) can use it
+  useEffect(() => {
+    window.__commandPalette = { registerCommand };
+    return () => {
+      delete window.__commandPalette;
+    };
+  }, [registerCommand]);
+
   // Single central keyboard listener for all shortcuts
   useEffect(() => {
     function onKeyup(e) {

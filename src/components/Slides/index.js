@@ -162,9 +162,23 @@ function Component({ md }) {
 
   useEffect(() => {
     return registerCommand({
-      label: "Toggle Presenter View",
+      label: "Toggle Presenter Notes",
       shortcut: "p",
       action: () => setIsPresenterWindow((val) => !val),
+    });
+  }, [registerCommand]);
+
+  useEffect(() => {
+    return registerCommand({
+      label: "Toggle full-screen",
+      shortcut: "f",
+      action: () => {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      },
     });
   }, [registerCommand]);
 

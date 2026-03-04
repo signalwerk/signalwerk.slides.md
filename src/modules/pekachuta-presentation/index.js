@@ -110,7 +110,9 @@ const template = /* HTML */ `
       stroke-linecap: round;
       stroke-dasharray: var(--circumference);
       stroke-dashoffset: 0;
-      transition: stroke-dashoffset 0.9s linear, stroke 0.4s;
+      transition:
+        stroke-dashoffset 0.9s linear,
+        stroke 0.4s;
     }
 
     .ring.warning {

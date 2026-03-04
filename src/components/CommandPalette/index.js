@@ -188,9 +188,7 @@ export function CommandPaletteProvider({ children }) {
   return (
     <CommandPaletteContext.Provider value={{ registerCommand }}>
       {children}
-      {isOpen && (
-        <CommandPaletteUI commands={commands} onClose={handleClose} />
-      )}
+      {isOpen && <CommandPaletteUI commands={commands} onClose={handleClose} />}
     </CommandPaletteContext.Provider>
   );
 }

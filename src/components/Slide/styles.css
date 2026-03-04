@@ -199,7 +199,7 @@ style-negative
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: .25rem;
+  padding-bottom: 0.25rem;
 }
 
 .Slides__touch-nav-btn:disabled {

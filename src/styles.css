@@ -24,3 +24,4 @@
 
 /* components */
 @import "./components/Box/styles.css";
+@import "./components/CommandPalette/styles.css";

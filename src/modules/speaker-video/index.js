@@ -6,24 +6,37 @@ class VideoButton extends HTMLElement {
       <style>
         :host {
           display: none;
+          position: fixed;
+          bottom: 5vh;
+          right: 5vh;
+          width: 25vh;
+          height: 25vh;
+          font-size: 1vh;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 2px solid #ccc;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+          background-color: #fff;
         }
         :host(.show) {
           display: flex;
+        }
+        :host(.big) {
+          width: 100%;
+          height: 100%;
+          bottom: 0;
+          right: 0;
+          border-radius: 0;
         }
         video {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
-        .tooltip {
-          display: none;
-        }
       </style>
       <video autoplay></video>
-      <div part="tooltip" class="tooltip">
-        Ctrl + H: Toggle video stream<br />
-        Ctrl + F: Fullscreen video
-      </div>
     `;
     this.stream = null;
     this._unregisterCommands = [];

@@ -248,6 +248,16 @@ background:
 
 ## Modules
 
+```html
+<speaker-video></speaker-video>
+```
+
+<speaker-video></speaker-video>
+
+--s--
+
+## Modules
+
 ### Random Selection & Timer Countdown
 
 <random-selection data-set="oblique-strategies"></random-selection>

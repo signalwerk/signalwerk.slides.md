@@ -20,11 +20,11 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS; // ≈ 238.76
 const template = /* HTML */ `
   <style>
     :host {
-      --timer-size: 1;
+      --pekachuta-size--local: var(--pekachuta-size, 1);
       display: none;
       position: fixed;
-      bottom: calc(0.4rem * var(--timer-size));
-      right: calc(0.4rem * var(--timer-size));
+      top: calc(0.4rem * var(--pekachuta-size--local));
+      right: calc(0.4rem * var(--pekachuta-size--local));
       z-index: 500;
       font-family: var(
         --root--font-family,
@@ -43,13 +43,13 @@ const template = /* HTML */ `
 
     .widget {
       background: color-mix(var(--blue-color--dark, #002f5b), transparent 10%);
-      border-radius: calc(0.2rem * var(--timer-size));
-      padding: calc(0.2rem * var(--timer-size));
-      width: calc(2.1rem * var(--timer-size));
+      border-radius: calc(0.2rem * var(--pekachuta-size--local));
+      padding: calc(0.2rem * var(--pekachuta-size--local));
+      width: calc(1.2rem * var(--pekachuta-size--local));
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: calc(0.1rem * var(--timer-size));
+      gap: calc(0.1rem * var(--pekachuta-size--local));
       position: relative;
     }
 
@@ -59,22 +59,22 @@ const template = /* HTML */ `
       right: 0;
       background: none;
       border: none;
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.1);
       cursor: pointer;
-      font-size: calc(0.3rem * var(--timer-size));
+      font-size: calc(0.3rem * var(--pekachuta-size--local));
       line-height: 1;
-      padding: 0 calc(0.1rem * var(--timer-size));
-      border-radius: calc(0.1rem * var(--timer-size));
-      width: calc(0.65rem * var(--timer-size));
-      height: calc(0.65rem * var(--timer-size));
+      padding: 0 calc(0.1rem * var(--pekachuta-size--local));
+      border-radius: calc(0.1rem * var(--pekachuta-size--local));
+      width: calc(0.5rem * var(--pekachuta-size--local));
+      height: calc(0.5rem * var(--pekachuta-size--local));
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 10;
     }
 
     .close-btn:hover {
       color: rgba(255, 255, 255, 0.8);
-      background: rgba(255, 255, 255, 0.1);
     }
 
     /* ── Circle timer ────────────────────────────────── */
@@ -127,13 +127,17 @@ const template = /* HTML */ `
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: calc(0.7rem * var(--timer-size));
+      font-size: calc(0.4rem * var(--pekachuta-size--local));
       font-weight: 700;
       color: #fff;
     }
 
     :host(.paused) .time-label {
-      opacity: 0.4;
+      opacity: 0;
+    }
+
+    .timer-wrap:hover .time-label {
+      opacity: 0;
     }
 
     .pause-hint {
@@ -142,7 +146,7 @@ const template = /* HTML */ `
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: calc(0.5rem * var(--timer-size));
+      font-size: calc(0.3rem * var(--pekachuta-size--local));
       opacity: 0;
       transition: opacity 0.2s;
       color: rgba(255, 255, 255, 0.6);
@@ -155,14 +159,14 @@ const template = /* HTML */ `
     /* ── Slide counter ───────────────────────────────── */
 
     .slide-counter {
-      font-size: calc(0.3rem * var(--timer-size));
+      font-size: calc(0.3rem * var(--pekachuta-size--local));
       font-weight: 600;
       color: rgba(255, 255, 255, 0.6);
     }
 
     .slide-counter .current {
       color: #fff;
-      font-size: calc(0.3rem * var(--timer-size));
+      font-size: calc(0.3rem * var(--pekachuta-size--local));
     }
   </style>
 

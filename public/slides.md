@@ -246,6 +246,18 @@ background:
 
 --s--
 
+## Modules Pekachuta
+
+```html
+<style>
+  :root {
+    --pekachuta-size: 0.7;
+  }
+</style>
+```
+
+--s--
+
 ## Modules
 
 ```html

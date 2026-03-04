@@ -99,7 +99,14 @@ To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux
 
 ### Pecha Kucha Player
 
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1fbe1a2/modules/pekachuta-presentation/index.js"></script>
+> ⚠️ make sure to set the attribute `defer` on the script tag.
+
+```html
+<script
+  src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/1fbe1a2/modules/pekachuta-presentation/index.js"
+  defer
+></script>
+```
 
 ### Carousel Player
 

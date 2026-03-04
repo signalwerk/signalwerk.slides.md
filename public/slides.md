@@ -285,9 +285,9 @@ Including `fea` support for OpenType feature code.
 ## Modules Image Player
 
 <div class="box--w80p">
-<image-player class="img--w100p" autoplay controls duration="800">
+<image-player class="img--w100p" autoplay controls loop duration="800">
   <img src="https://placecats.com/neo/800/450" alt="image" />
-  <img src="https://placecats.com/millie/800/450" alt="image"  duration="2000">
+  <img src="https://placecats.com/millie/800/450" alt="image" duration="2000">
   <img src="https://placecats.com/louie/800/450" alt="image" />
   <!-- more images -->
 </image-player>

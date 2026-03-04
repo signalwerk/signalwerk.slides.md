@@ -114,7 +114,7 @@ To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux
 <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/0207b4a/modules/image-player/index.js"></script>
 
 <!-- Basic image player -->
-<image-player autoplay controls duration="1000">
+<image-player autoplay controls loop duration="1000">
   <img src="./img/1.svg" alt="image" />
   <img src="./img/2.svg" alt="image" duration="3000" />
   <!-- more images -->

@@ -4,6 +4,7 @@
  * Attributes:
  * - controls: Show play/pause button in center when paused (default: false)
  * - autoplay: Auto-advance frames. Click anywhere to pause/play (default: false)
+ * - loop: Loop back to the first frame after the last one (default: false)
  * - duration: Time per frame in milliseconds (default: 1000)
  *
  * Child element attributes:
@@ -81,6 +82,7 @@ class ImagePlayerElement extends HTMLElement {
     // Get attributes
     const hasControls = this.hasAttribute("controls");
     const hasAutoplay = this.hasAttribute("autoplay");
+    const hasLoop = this.hasAttribute("loop");
     const duration = parseInt(this.getAttribute("duration") || "1000", 10);
 
     /** Get all assigned frame elements */
@@ -145,11 +147,18 @@ class ImagePlayerElement extends HTMLElement {
       }
     };
 
-    /** Navigate to the next frame */
+    /** Navigate to the next frame, loop to start if enabled, or stop autoplay at end */
     const goToNext = () => {
       const frames = getFrames();
-      const nextIndex = (this.currentIndex + 1) % frames.length;
-      showFrame(nextIndex);
+      const isAtEnd = this.currentIndex >= frames.length - 1;
+
+      if (!isAtEnd) {
+        showFrame(this.currentIndex + 1);
+      } else if (hasLoop) {
+        showFrame(0);
+      } else {
+        stopAutoplay();
+      }
     };
 
     // Initialize frames once slot content is available

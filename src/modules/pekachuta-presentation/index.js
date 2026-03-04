@@ -20,14 +20,22 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS; // ≈ 238.76
 const template = /* HTML */ `
   <style>
     :host {
+      --timer-size: 1;
       display: none;
       position: fixed;
-      bottom: 1.25rem;
-      right: 1.25rem;
+      bottom: calc(0.4rem * var(--timer-size));
+      right: calc(0.4rem * var(--timer-size));
       z-index: 500;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 14px;
+      font-family: var(
+        --root--font-family,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif
+      );
+      font-size: var(--font-size, 1rem);
       user-select: none;
+      box-sizing: border-box;
     }
 
     :host(.active) {
@@ -35,40 +43,29 @@ const template = /* HTML */ `
     }
 
     .widget {
-      background: rgba(0, 15, 40, 0.88);
-      border-radius: 10px;
-      padding: 10px 12px 12px;
+      background: color-mix(var(--blue-color--dark, #002f5b), transparent 10%);
+      border-radius: calc(0.2rem * var(--timer-size));
+      padding: calc(0.2rem * var(--timer-size));
+      width: calc(2.1rem * var(--timer-size));
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      min-width: 96px;
+      gap: calc(0.1rem * var(--timer-size));
       position: relative;
-    }
-
-    .title {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.35);
-      padding-right: 16px;
-      align-self: flex-start;
     }
 
     .close-btn {
       position: absolute;
-      top: 6px;
-      right: 8px;
+      top: calc(0.2rem * var(--timer-size));
+      right: calc(0.2rem * var(--timer-size));
       background: none;
       border: none;
       color: rgba(255, 255, 255, 0.3);
       cursor: pointer;
-      font-size: 11px;
+      font-size: calc(0.3rem * var(--timer-size));
       line-height: 1;
-      padding: 2px 4px;
-      border-radius: 3px;
+      padding: 0 calc(0.1rem * var(--timer-size));
+      border-radius: calc(0.1rem * var(--timer-size));
     }
 
     .close-btn:hover {
@@ -80,8 +77,8 @@ const template = /* HTML */ `
 
     .timer-wrap {
       position: relative;
-      width: 88px;
-      height: 88px;
+      min-width: 100%;
+      aspect-ratio: 1 / 1;
       cursor: pointer;
     }
 
@@ -125,10 +122,9 @@ const template = /* HTML */ `
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: calc(0.7rem * var(--timer-size));
       font-weight: 700;
       color: #fff;
-      letter-spacing: -0.03em;
     }
 
     :host(.paused) .time-label {
@@ -141,7 +137,7 @@ const template = /* HTML */ `
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: calc(0.5rem * var(--timer-size));
       opacity: 0;
       transition: opacity 0.2s;
       color: rgba(255, 255, 255, 0.6);
@@ -154,20 +150,18 @@ const template = /* HTML */ `
     /* ── Slide counter ───────────────────────────────── */
 
     .slide-counter {
-      font-size: 12px;
+      font-size: calc(0.3rem * var(--timer-size));
       font-weight: 600;
       color: rgba(255, 255, 255, 0.6);
-      letter-spacing: 0.06em;
     }
 
     .slide-counter .current {
       color: #fff;
-      font-size: 14px;
+      font-size: calc(0.3rem * var(--timer-size));
     }
   </style>
 
   <div class="widget">
-    <div class="title">Peka·Kucha</div>
     <button class="close-btn" id="close" title="Stop Pekachuta">✕</button>
 
     <div class="timer-wrap" id="timer-wrap" title="Click to pause / resume">
@@ -268,6 +262,7 @@ class PekachutaPresentation extends HTMLElement {
     if (this._unregisterCommand || !window.commandPalette) return;
     this._unregisterCommand = window.commandPalette.registerCommand({
       label: "Toggle Pekachuta Presentation",
+      shortcut: { key: "t", ctrl: true },
       action: () => this.toggle(),
     });
   }
@@ -352,9 +347,11 @@ class PekachutaPresentation extends HTMLElement {
     const el = this.shadowRoot.getElementById("slide-counter");
     if (!el) return;
     if (this._total > 0) {
-      el.innerHTML = `<span class="current">${this._current + 1}</span>&thinsp;/&thinsp;${this._total}`;
+      el.innerHTML = `<span class="current">${
+        this._current + 1
+      }</span>&thinsp;|&thinsp;${this._total}`;
     } else {
-      el.innerHTML = `<span class="current">—</span>&thinsp;/&thinsp;—`;
+      el.innerHTML = `<span class="current">—</span>&thinsp;|&thinsp;—`;
     }
   }
 }

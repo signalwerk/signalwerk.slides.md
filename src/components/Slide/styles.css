@@ -186,15 +186,20 @@ style-negative
 }
 
 .Slides__touch-nav-btn {
-  background-color: rgba(0, 47, 91, 0.7);
+  background-color: color-mix(var(--blue-color), transparent 60%);
   color: white;
   border: none;
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
   font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
   cursor: pointer;
   line-height: 1;
-  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: .25rem;
 }
 
 .Slides__touch-nav-btn:disabled {

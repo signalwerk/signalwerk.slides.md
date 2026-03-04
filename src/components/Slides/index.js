@@ -151,7 +151,7 @@ function Component({ md }) {
           aria-label="Previous slide"
           disabled={current === 0}
         >
-          ←
+          ‹
         </button>
         <button
           className="Slides__touch-nav-btn Slides__touch-nav-btn--next"
@@ -159,7 +159,7 @@ function Component({ md }) {
           aria-label="Next slide"
           disabled={current === count}
         >
-          →
+          ›
         </button>
       </div>
     </div>

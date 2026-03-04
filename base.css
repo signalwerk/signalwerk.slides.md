@@ -844,6 +844,105 @@ style-negative
   padding: 0.25rem;
   /* font-size: 0.7rem; */
 }
+.CommandPalette__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 15vh;
+}
+.CommandPalette {
+  background: #fff;
+  border-radius: 0.3em;
+  -webkit-box-shadow: 0 1em 3em rgba(0, 0, 0, 0.4);
+          box-shadow: 0 1em 3em rgba(0, 0, 0, 0.4);
+  width: min(600px, 90vw);
+  overflow: hidden;
+  font-size: 0.6rem;
+}
+.CommandPalette__input {
+  display: block;
+  width: 100%;
+  padding: 0.6em 0.8em;
+  border: none;
+  border-bottom: 2px solid #e6e8ea;
+  border-bottom: 2px solid var(--gray-color);
+  font-family: "Work Sans", "Noto Emoji", sans-serif;
+  font-family: var(--root--font-family);
+  font-size: inherit;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.CommandPalette__input:focus {
+  border-bottom-color: #0054a2;
+  border-bottom-color: var(--blue-color);
+}
+.CommandPalette__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.25em 0;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+.CommandPalette__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.45em 0.8em;
+  cursor: pointer;
+  gap: 1em;
+}
+.CommandPalette__item--selected {
+  background: #0054a2;
+  background: var(--blue-color);
+  color: #fff;
+}
+.CommandPalette__label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.CommandPalette__shortcut {
+  font-family: "Work Sans", "Noto Emoji", sans-serif;
+  font-family: var(--root--font-family);
+  font-size: 0.8em;
+  background: #e6e8ea;
+  background: var(--gray-color);
+  color: #002f5b;
+  color: var(--blue-color--dark);
+  padding: 0.1em 0.4em;
+  border-radius: 0.2em;
+  white-space: nowrap;
+}
+.CommandPalette__item--selected .CommandPalette__shortcut {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+.CommandPalette__empty {
+  padding: 0.6em 0.8em;
+  color: #a7a9ab;
+  color: var(--gray-color--dark);
+  font-style: italic;
+}
 @media print {
   @page {
     size: 288mm 210mm;

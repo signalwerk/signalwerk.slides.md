@@ -305,7 +305,7 @@ export function fea(hljs) {
 
   return {
     name: "OpenType Feature File",
-    aliases: ["fea", "opentype", "opentypefeature", "feature-file"],
+    aliases: ["fea", "opentype", "opentypefeature"],
     case_insensitive: false,
     keywords: {
       $pattern: /[A-Za-z_][A-Za-z0-9._-]*/,

@@ -408,7 +408,7 @@ code.code--background,
   color: #0054a2;
   color: var(--blue-color);
 }
-.hljs-title.function_ {
+.hljs-title {
   color: rgb(25, 160, 202);
   color: var(--cyan-color);
 }

@@ -217,6 +217,18 @@ background:
 </html>
 ```
 
+--s--
+
+## Code
+
+```fea
+# Ligature formation
+feature liga {
+    substitute f i by f_i;
+    substitute f l by f_l;
+} liga;
+```
+
 Including `fea` support for OpenType feature code.
 
 --s--

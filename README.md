@@ -234,3 +234,4 @@ You can add a `href` parameter to the query string (`?href=http://examlple.com/s
 - [2025 · Pixelfonts like it's 1982](https://signalwerk.github.io/workshop.pixelfont/) ([repo](https://github.com/signalwerk/workshop.pixelfont))
 - [2026 · Von Scans alter Schreibmaschinenseiten zum Font – Scheinzufall als Schriftprinzip](https://signalwerk.github.io/talk.random-typewriter-fonts/) ([repo](https://github.com/signalwerk/talk.random-typewriter-fonts))
 - [2026 · KI-Auswertung für Grossgruppen-Workshops](https://signalwerk.github.io/talk.ai-workshop-tool/) ([repo](https://github.com/signalwerk/talk.ai-workshop-tool))
+- [2026 · Building Slides](https://signalwerk.github.io/talk.slides-in-html/) ([repo](https://github.com/signalwerk/talk.slides-in-html))

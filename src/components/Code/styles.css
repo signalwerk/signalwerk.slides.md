@@ -33,7 +33,7 @@ code.code--background,
   color: var(--blue-color);
 }
 
-.hljs-title.function_ {
+.hljs-title {
   color: var(--cyan-color);
 }
 

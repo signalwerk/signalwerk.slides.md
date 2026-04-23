@@ -25,7 +25,7 @@
     <!-- styles -->
     <link
       rel="stylesheet"
-      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/base.css"
+      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/base.css"
       media="all"
     />
   </head>
@@ -33,7 +33,7 @@
     <!-- page content -->
     <signalwerk-slides href="slides.md"></signalwerk-slides>
     <!-- logic -->
-    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/index.js"></script>
+    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/index.js"></script>
     <!-- modules -->
   </body>
 </html>
@@ -62,7 +62,7 @@ To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux
 ### Carousel Player
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/modules/carousel-player/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/modules/carousel-player/index.js"></script>
 
 <carousel-player>
   <img src="./img/1.svg" alt="image" />
@@ -75,7 +75,7 @@ To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux
 ### Timer (count down)
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/modules/timer-countdown/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/modules/timer-countdown/index.js"></script>
 
 <timer-countdown time="00:01:00"></timer-countdown>
 
@@ -89,10 +89,10 @@ To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux
 ```html
 <link
   rel="stylesheet"
-  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/modules/speaker-video/styles.css"
+  href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/modules/speaker-video/styles.css"
   media="all"
 />
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/modules/speaker-video/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/modules/speaker-video/index.js"></script>
 
 <speaker-video></speaker-video>
 ```
@@ -102,14 +102,14 @@ To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux
 
 ```html
 <script
-  src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/modules/pekachuta-presentation/index.js"
+  src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/modules/pekachuta-presentation/index.js"
 ></script>
 ```
 
 ### Image Player
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/modules/image-player/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/modules/image-player/index.js"></script>
 
 <!-- Basic image player -->
 <image-player autoplay controls loop duration="1000">
@@ -122,7 +122,7 @@ To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux
 ### Carousel Player
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/modules/carousel-player/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/modules/carousel-player/index.js"></script>
 
 <!-- Basic carousel -->
 <carousel-player transition="smooth">
@@ -150,7 +150,7 @@ To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux
 ### Random Selection
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/modules/random-selection/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/modules/random-selection/index.js"></script>
 
 <!-- Using predefined datasets -->
 <random-selection data-set="oblique-strategies"></random-selection>
@@ -170,7 +170,7 @@ To activate the command palette, press `Cmd + K` (or `Ctrl + K` on Windows/Linux
 ### QR Code
 
 ```html
-<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/23bc5c4/modules/qr-code/index.js"></script>
+<script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/9d870f3/modules/qr-code/index.js"></script>
 
 <qr-code data="https://signalwerk.ch"></qr-code>
 
